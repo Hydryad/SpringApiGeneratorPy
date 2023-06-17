@@ -41,8 +41,24 @@ fpath = Path.cwd() # non testing code, gets where our script is running as a pat
 htmlFilePaths = list(Path(fpath).glob('*.html'))
 pprint.pprint(htmlFilePaths)
 #fdpath = os.path.join(fpath, localCopyPath) # combine with hardcoded localCopyPath, we can make a list of files and loop perhaps
+h3TagsAndCodeExample = {"Foo": "Bar"}
 
+# demo code turning into prod code, was initially to test pulling h3.
+# should possibly try to pull a broader scope
 
-with open(htmlFilePaths[0], "r") as inputF:
-    soup = BeautifulSoup(inputF, 'html.parser')
+with open(htmlFilePaths[21], "r") as inputF2:
+    soup = BeautifulSoup(inputF2, 'html.parser')
+    strained = soup.select('h3 ~ .code-example')
     
+    pprint.pprint(strained, compact=True, width=200)
+
+with open(htmlFilePaths[21], "r") as inputF:
+    soup = BeautifulSoup(inputF, 'html.parser')
+    h3tags = soup.find_all("h3")
+    for thisTag in h3tags:
+        if thisTag.get('id'):
+            h3TagsAndCodeExample[thisTag['id']] = {"Name": thisTag['id']}
+    pprint.pprint(h3TagsAndCodeExample)
+    pprint.pprint(h3tags, compact=True, indent=4)
+    print(soup.prettify())
+    print("Wait!")
