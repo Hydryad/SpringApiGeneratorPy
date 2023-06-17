@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en-US">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible"/>
+  <script src="/spring/assets/js/theme-switcher.js">
+  </script>
+  <link href="/spring/assets/css/just-the-docs-themes.css" rel="stylesheet"/>
+  <script src="/spring/assets/js/vendor/lunr.min.js">
+  </script>
+  <script src="/spring/assets/js/just-the-docs.js">
+  </script>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   OpenGL | Recoil
+  </title>
+  <meta content="Jekyll v3.9.3" name="generator">
+   <meta content="OpenGL" property="og:title">
+    <meta content="en_US" property="og:locale">
+     <meta content="Lua OpenGL API" name="description"/>
+     <meta content="Lua OpenGL API" property="og:description"/>
+     <link href="https://beyond-all-reason.github.io/spring/ldoc/modules/OpenGL.html" rel="canonical">
+      <meta content="https://beyond-all-reason.github.io/spring/ldoc/modules/OpenGL.html" property="og:url"/>
+      <meta content="Recoil" property="og:site_name"/>
+      <meta content="website" property="og:type"/>
+      <meta content="summary" name="twitter:card"/>
+      <meta content="OpenGL" property="twitter:title"/>
+      <script type="application/ld+json">
+       {"@context":"https://schema.org","@type":"WebPage","description":"Lua OpenGL API","headline":"OpenGL","url":"https://beyond-all-reason.github.io/spring/ldoc/modules/OpenGL.html"}
+      </script>
+      <body>
+       <a class="skip-to-main" href="#main-content">
+        Skip to main content
+       </a>
+       <svg class="d-none" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="svg-link" viewbox="0 0 24 24">
+         <title>
+          Link
+         </title>
+         <svg class="feather feather-link" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71">
+          </path>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71">
+          </path>
+         </svg>
+        </symbol>
+        <symbol id="svg-menu" viewbox="0 0 24 24">
+         <title>
+          Menu
+         </title>
+         <svg class="feather feather-menu" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <line x1="3" x2="21" y1="12" y2="12">
+          </line>
+          <line x1="3" x2="21" y1="6" y2="6">
+          </line>
+          <line x1="3" x2="21" y1="18" y2="18">
+          </line>
+         </svg>
+        </symbol>
+        <symbol id="svg-arrow-right" viewbox="0 0 24 24">
+         <title>
+          Expand
+         </title>
+         <svg class="feather feather-chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="9 18 15 12 9 6">
+          </polyline>
+         </svg>
+        </symbol>
+        <symbol class="feather feather-external-link" fill="none" height="24" id="svg-external-link" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24">
+         <title id="svg-external-link-title">
+          (external link)
+         </title>
+         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6">
+         </path>
+         <polyline points="15 3 21 3 21 9">
+         </polyline>
+         <line x1="10" x2="21" y1="14" y2="3">
+         </line>
+        </symbol>
+        <symbol id="svg-doc" viewbox="0 0 24 24">
+         <title>
+          Document
+         </title>
+         <svg class="feather feather-file" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z">
+          </path>
+          <polyline points="13 2 13 9 20 9">
+          </polyline>
+         </svg>
+        </symbol>
+        <symbol id="svg-search" viewbox="0 0 24 24">
+         <title>
+          Search
+         </title>
+         <svg class="feather feather-search" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="11" cy="11" r="8">
+          </circle>
+          <line x1="21" x2="16.65" y1="21" y2="16.65">
+          </line>
+         </svg>
+        </symbol>
+        <symbol id="svg-copy" viewbox="0 0 16 16">
+         <title>
+          Copy
+         </title>
+         <svg class="bi bi-clipboard" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z">
+          </path>
+          <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z">
+          </path>
+         </svg>
+        </symbol>
+        <symbol id="svg-copied" viewbox="0 0 16 16">
+         <title>
+          Copied
+         </title>
+         <svg class="bi bi-clipboard-check-fill" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z">
+          </path>
+          <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z">
+          </path>
+         </svg>
+        </symbol>
+       </svg>
+       <div class="side-bar">
+        <div class="site-header" role="banner">
+         <a class="site-title lh-tight" href="/spring/">
+          Recoil
+         </a>
+         <button aria-label="Toggle menu" aria-pressed="false" class="site-button btn-reset" id="menu-button">
+          <svg aria-hidden="true" class="icon" viewbox="0 0 24 24">
+           <use xlink:href="#svg-menu">
+           </use>
+          </svg>
+         </button>
+        </div>
+        <nav aria-label="Main" class="site-nav" id="site-nav">
+         <ul class="nav-list">
+          <li class="nav-list-item">
+           <a class="nav-list-link" href="/spring/">
+            Home
+           </a>
+           <li class="nav-list-item">
+            <button aria-label="toggle items in Articles category" aria-pressed="false" class="nav-list-expander btn-reset">
+             <svg aria-hidden="true" viewbox="0 0 24 24">
+              <use xlink:href="#svg-arrow-right">
+              </use>
+             </svg>
+            </button>
+            <a class="nav-list-link" href="/spring/articles">
+             Articles
+            </a>
+            <ul class="nav-list">
+             <li class="nav-list-item">
+              <a class="nav-list-link" href="/spring/articles/team-terminology">
+               Team terminology
+              </a>
+              <li class="nav-list-item">
+               <a class="nav-list-link" href="/spring/articles/select-command/">
+                The select command
+               </a>
+               <li class="nav-list-item">
+                <a class="nav-list-link" href="/spring/articles/unit-defs">
+                 Unit defs
+                </a>
+                <li class="nav-list-item">
+                 <a class="nav-list-link" href="/spring/articles/units-of-measurement">
+                  Units of measurement
+                 </a>
+                 <li class="nav-list-item">
+                  <a class="nav-list-link" href="/spring/articles/vfs-basics">
+                   VFS Basics
+                  </a>
+                 </li>
+                </li>
+               </li>
+              </li>
+             </li>
+            </ul>
+            <li class="nav-list-item">
+             <button aria-label="toggle items in Guides category" aria-pressed="false" class="nav-list-expander btn-reset">
+              <svg aria-hidden="true" viewbox="0 0 24 24">
+               <use xlink:href="#svg-arrow-right">
+               </use>
+              </svg>
+             </button>
+             <a class="nav-list-link" href="/spring/guides">
+              Guides
+             </a>
+             <ul class="nav-list">
+              <li class="nav-list-item">
+               <a class="nav-list-link" href="/spring/guides/configuration-variables/">
+                Configuration Variables
+               </a>
+               <li class="nav-list-item">
+                <a class="nav-list-link" href="/spring/guides/glossary/">
+                 Glossary
+                </a>
+                <li class="nav-list-item">
+                 <a class="nav-list-link" href="/spring/guides/headless-and-dedi">
+                  Headless and dedicated
+                 </a>
+                 <li class="nav-list-item">
+                  <a class="nav-list-link" href="/spring/guides/lua-vbo-vao">
+                   Lua VBO and VAO
+                  </a>
+                  <li class="nav-list-item">
+                   <a class="nav-list-link" href="/spring/guides/synced-commands/">
+                    Synced Commands
+                   </a>
+                   <li class="nav-list-item">
+                    <a class="nav-list-link" href="/spring/guides/unsynced-commands/">
+                     Unsynced Commands
+                    </a>
+                    <li class="nav-list-item">
+                     <a class="nav-list-link" href="/spring/guides/weapon-defs/">
+                      Weapon Defs
+                     </a>
+                    </li>
+                   </li>
+                  </li>
+                 </li>
+                </li>
+               </li>
+              </li>
+             </ul>
+             <li class="nav-list-item">
+              <button aria-label="toggle items in Development category" aria-pressed="false" class="nav-list-expander btn-reset">
+               <svg aria-hidden="true" viewbox="0 0 24 24">
+                <use xlink:href="#svg-arrow-right">
+                </use>
+               </svg>
+              </button>
+              <a class="nav-list-link" href="/spring/development">
+               Development
+              </a>
+              <ul class="nav-list">
+               <li class="nav-list-item">
+                <a class="nav-list-link" href="/spring/development/build-with-docker">
+                 Building with Docker
+                </a>
+                <li class="nav-list-item">
+                 <a class="nav-list-link" href="/spring/development/build-without-docker">
+                  Building without Docker
+                 </a>
+                </li>
+               </li>
+              </ul>
+              <li class="nav-list-item active">
+               <button aria-label="toggle items in Lua API category" aria-pressed="true" class="nav-list-expander btn-reset">
+                <svg aria-hidden="true" viewbox="0 0 24 24">
+                 <use xlink:href="#svg-arrow-right">
+                 </use>
+                </svg>
+               </button>
+               <a class="nav-list-link" href="/spring/lua-api">
+                Lua API
+               </a>
+               <ul class="nav-list">
+                <li class="nav-list-item">
+                 <a class="nav-list-link" href="/spring/ldoc/modules/BitOps.html">
+                  BitOps
+                 </a>
+                 <li class="nav-list-item">
+                  <a class="nav-list-link" href="/spring/ldoc/modules/CMD.html">
+                   CMD
+                  </a>
+                  <li class="nav-list-item">
+                   <a class="nav-list-link" href="/spring/ldoc/modules/CMDTYPE.html">
+                    CMDTYPE
+                   </a>
+                   <li class="nav-list-item">
+                    <a class="nav-list-link" href="/spring/ldoc/modules/COB.html">
+                     COB
+                    </a>
+                    <li class="nav-list-item">
+                     <a class="nav-list-link" href="/spring/ldoc/modules/Engine.html">
+                      Engine
+                     </a>
+                     <li class="nav-list-item">
+                      <a class="nav-list-link" href="/spring/ldoc/modules/FBO.html">
+                       FBO
+                      </a>
+                      <li class="nav-list-item">
+                       <a class="nav-list-link" href="/spring/ldoc/modules/GL.html">
+                        GL
+                       </a>
+                       <li class="nav-list-item">
+                        <a class="nav-list-link" href="/spring/ldoc/modules/Game.html">
+                         Game
+                        </a>
+                        <li class="nav-list-item">
+                         <a class="nav-list-link" href="/spring/ldoc/modules/LuaHandle.html">
+                          LuaHandle
+                         </a>
+                         <li class="nav-list-item">
+                          <a class="nav-list-link" href="/spring/ldoc/modules/LuaHandleSynced.html">
+                           LuaHandleSynced
+                          </a>
+                          <li class="nav-list-item">
+                           <a class="nav-list-link" href="/spring/ldoc/modules/LuaRules.html">
+                            LuaRules
+                           </a>
+                           <li class="nav-list-item">
+                            <a class="nav-list-link" href="/spring/ldoc/modules/LuaVAO.html">
+                             LuaVAO
+                            </a>
+                            <li class="nav-list-item">
+                             <a class="nav-list-link" href="/spring/ldoc/modules/LuaVBO.html">
+                              LuaVBO
+                             </a>
+                             <li class="nav-list-item">
+                              <a class="nav-list-link" href="/spring/ldoc/modules/LuaZip.html">
+                               LuaZip
+                              </a>
+                              <li class="nav-list-item">
+                               <a class="nav-list-link" href="/spring/ldoc/modules/MathExtra.html">
+                                MathExtra
+                               </a>
+                               <li class="nav-list-item">
+                                <a class="nav-list-link" href="/spring/ldoc/modules/MetalMap.html">
+                                 MetalMap
+                                </a>
+                                <li class="nav-list-item">
+                                 <a class="nav-list-link" href="/spring/ldoc/modules/MoveCtrl.html">
+                                  MoveCtrl
+                                 </a>
+                                 <li class="nav-list-item active">
+                                  <a class="nav-list-link active" href="/spring/ldoc/modules/OpenGL.html">
+                                   OpenGL
+                                  </a>
+                                  <li class="nav-list-item">
+                                   <a class="nav-list-link" href="/spring/ldoc/modules/Platform.html">
+                                    Platform
+                                   </a>
+                                   <li class="nav-list-item">
+                                    <a class="nav-list-link" href="/spring/ldoc/modules/RBO.html">
+                                     RBO
+                                    </a>
+                                    <li class="nav-list-item">
+                                     <a class="nav-list-link" href="/spring/ldoc/modules/Shaders.html">
+                                      Shaders
+                                     </a>
+                                     <li class="nav-list-item">
+                                      <a class="nav-list-link" href="/spring/ldoc/modules/SyncedCtrl.html">
+                                       SyncedCtrl
+                                      </a>
+                                      <li class="nav-list-item">
+                                       <a class="nav-list-link" href="/spring/ldoc/modules/SyncedRead.html">
+                                        SyncedRead
+                                       </a>
+                                       <li class="nav-list-item">
+                                        <a class="nav-list-link" href="/spring/ldoc/modules/UnsyncedCtrl.html">
+                                         UnsyncedCtrl
+                                        </a>
+                                        <li class="nav-list-item">
+                                         <a class="nav-list-link" href="/spring/ldoc/modules/UnsyncedRead.html">
+                                          UnsyncedRead
+                                         </a>
+                                         <li class="nav-list-item">
+                                          <a class="nav-list-link" href="/spring/ldoc/classes/VAO.html">
+                                           VAO
+                                          </a>
+                                          <li class="nav-list-item">
+                                           <a class="nav-list-link" href="/spring/ldoc/classes/VBO.html">
+                                            VBO
+                                           </a>
+                                           <li class="nav-list-item">
+                                            <a class="nav-list-link" href="/spring/ldoc/modules/VFS.html">
+                                             VFS
+                                            </a>
+                                           </li>
+                                          </li>
+                                         </li>
+                                        </li>
+                                       </li>
+                                      </li>
+                                     </li>
+                                    </li>
+                                   </li>
+                                  </li>
+                                 </li>
+                                </li>
+                               </li>
+                              </li>
+                             </li>
+                            </li>
+                           </li>
+                          </li>
+                         </li>
+                        </li>
+                       </li>
+                      </li>
+                     </li>
+                    </li>
+                   </li>
+                  </li>
+                 </li>
+                </li>
+               </ul>
+               <li class="nav-list-item">
+                <a class="nav-list-link" href="/spring/migrating-from-spring/">
+                 Migrating from Spring
+                </a>
+                <li class="nav-list-item">
+                 <a class="nav-list-link" href="/spring/about/">
+                  About
+                 </a>
+                </li>
+               </li>
+              </li>
+             </li>
+            </li>
+           </li>
+          </li>
+         </ul>
+        </nav>
+        <footer class="site-footer">
+         This site uses
+         <a href="https://github.com/just-the-docs/just-the-docs">
+          Just the Docs
+         </a>
+         , a documentation theme for Jekyll.
+        </footer>
+       </div>
+       <div class="main" id="top">
+        <div class="main-header" id="main-header">
+         <div class="search" role="search">
+          <div class="search-input-wrap">
+           <input aria-label="Search Recoil" autocomplete="off" class="search-input" id="search-input" placeholder="Search Recoil" tabindex="0" type="text"/>
+           <label class="search-label" for="search-input">
+            <svg class="search-icon" viewbox="0 0 24 24">
+             <use xlink:href="#svg-search">
+             </use>
+            </svg>
+           </label>
+          </div>
+          <div class="search-results" id="search-results">
+          </div>
+         </div>
+         <nav aria-label="Auxiliary" class="aux-nav">
+          <ul class="aux-nav-list">
+           <li class="aux-nav-list-item">
+            <a class="site-button aux-nav-img aux-nav-matrix" href="https://matrix.to/#/#recoil-rts:matrix.org" rel="noopener noreferrer" target="_blank">
+             <img alt="Matrix Logo" height="32" src="/spring/assets/matrix-logo.svg"/>
+            </a>
+            <li class="aux-nav-list-item">
+             <a class="site-button aux-nav-img aux-nav-github" href="https://github.com/beyond-all-reason/spring" rel="noopener noreferrer" target="_blank">
+              <img alt="Github Logo" height="32" src="/spring/assets/github-mark.svg"/>
+             </a>
+            </li>
+           </li>
+          </ul>
+         </nav>
+         <button aria-label="auto" aria-live="polite" class="theme-toggle" id="theme-toggle" title="Toggles light &amp; dark">
+          <svg aria-hidden="true" class="sun-and-moon" height="24" viewbox="0 0 24 24" width="24">
+           <mask class="moon" id="moon-mask">
+            <rect fill="white" height="100%" width="100%" x="0" y="0">
+            </rect>
+            <circle cx="24" cy="10" fill="black" r="6">
+            </circle>
+           </mask>
+           <circle class="sun" cx="12" cy="12" fill="currentColor" mask="url(#moon-mask)" r="6">
+           </circle>
+           <g class="sun-beams" stroke="currentColor">
+            <line x1="12" x2="12" y1="1" y2="3">
+            </line>
+            <line x1="12" x2="12" y1="21" y2="23">
+            </line>
+            <line x1="4.22" x2="5.64" y1="4.22" y2="5.64">
+            </line>
+            <line x1="18.36" x2="19.78" y1="18.36" y2="19.78">
+            </line>
+            <line x1="1" x2="3" y1="12" y2="12">
+            </line>
+            <line x1="21" x2="23" y1="12" y2="12">
+            </line>
+            <line x1="4.22" x2="5.64" y1="19.78" y2="18.36">
+            </line>
+            <line x1="18.36" x2="19.78" y1="5.64" y2="4.22">
+            </line>
+           </g>
+          </svg>
+         </button>
+        </div>
+        <div class="main-content-wrap" id="main-content-wrap">
+         <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+          <ol class="breadcrumb-nav-list">
+           <li class="breadcrumb-nav-list-item">
+            <a href="/spring/lua-api">
+             Lua API
+            </a>
+            <li class="breadcrumb-nav-list-item">
+             <span>
+              OpenGL
+             </span>
+            </li>
+           </li>
+          </ol>
+         </nav>
+         <div class="main-content" id="main-content">
+          <main>
+           <h1>
+            Module
+            <code>
+             OpenGL
+            </code>
+           </h1>
+           <p>
+            Lua OpenGL API
+           </p>
+           <p>
+            <hr/>
+           </p>
+           <h3>
+            See also:
+           </h3>
+           <ul>
+            <li>
+             <a href="https://github.com/beyond-all-reason/spring/blob/BAR105/rts/Lua/LuaOpenGL.cpp">
+              rts/Lua/LuaOpenGL.cpp
+             </a>
+            </li>
+           </ul>
+           <h2 class="no_anchor">
+            <a href="#Text">
+             Text
+            </a>
+           </h2>
+           <dl class="big-dt">
+            <dt>
+             <a href="#gl.Text">
+              gl.Text
+             </a>
+             <dd>
+             </dd>
+            </dt>
+           </dl>
+           <h2 class="no_anchor">
+            <a href="#Draw_Basics">
+             Draw Basics
+            </a>
+           </h2>
+           <dl class="big-dt">
+            <dt>
+             <a href="#gl.Color">
+              gl.Color
+             </a>
+             <dd>
+             </dd>
+            </dt>
+           </dl>
+           <h2 class="section-header has-description" id="Text">
+            <a aria-labelledby="Text" class="anchor-heading" href="#Text">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            Text
+           </h2>
+           <p>
+            <hr/>
+           </p>
+           <h3 id="gl.Text">
+            <a aria-labelledby="gl.Text" class="anchor-heading" href="#gl.Text">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            gl.Text(text, x, y, size[, options])
+           </h3>
+           <p>
+           </p>
+           <div class="code-example">
+            <p>
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               text
+              </code>
+              <strong>
+               <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">
+                string
+               </a>
+              </strong>
+              <li>
+               <code>
+                x
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               <li>
+                <code>
+                 y
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+                <li>
+                 <code>
+                  size
+                 </code>
+                 <strong>
+                  <span class="type">
+                   number
+                  </span>
+                 </strong>
+                 <li>
+                  <code>
+                   options
+                  </code>
+                  <strong>
+                   <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">
+                    string
+                   </a>
+                  </strong>
+                  <p>
+                   concatenated string of option characters.
+                  </p>
+                  <ul>
+                   <li>
+                    horizontal alignment:
+                    <ul>
+                     <li>
+                      'c' = center
+                      <li>
+                       'r' = right
+                      </li>
+                     </li>
+                    </ul>
+                    <li>
+                     vertical alignment:
+                     <ul>
+                      <li>
+                       'a' = ascender
+                       <li>
+                        't' = top
+                        <li>
+                         'v' = vertical center
+                         <li>
+                          'x' = baseline
+                          <li>
+                           'b' = bottom
+                           <li>
+                            'd' = descender
+                           </li>
+                          </li>
+                         </li>
+                        </li>
+                       </li>
+                      </li>
+                     </ul>
+                     <li>
+                      decorations:
+                      <ul>
+                       <li>
+                        'o' = black outline
+                        <li>
+                         'O' = white outline
+                         <li>
+                          's' = shadow
+                         </li>
+                        </li>
+                       </li>
+                      </ul>
+                      <li>
+                       other:
+                       <ul>
+                        <li>
+                         'n' = don't round vertex coords to nearest integer (font may get blurry)
+                        </li>
+                       </ul>
+                      </li>
+                     </li>
+                    </li>
+                   </li>
+                  </ul>
+                  (
+                  <em>
+                   optional
+                  </em>
+                  )
+                 </li>
+                </li>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                nil
+               </span>
+              </strong>
+             </li>
+            </ol>
+           </div>
+           <h2 class="section-header has-description" id="Draw_Basics">
+            <a aria-labelledby="Draw_Basics" class="anchor-heading" href="#Draw_Basics">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            Draw Basics
+           </h2>
+           <p>
+            <hr/>
+           </p>
+           <h3 id="gl.Color">
+            <a aria-labelledby="gl.Color" class="anchor-heading" href="#gl.Color">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            gl.Color(r[, g[, b[, a]]])
+           </h3>
+           <p>
+           </p>
+           <div class="code-example">
+            <p>
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               r
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+               or
+               <span class="type">
+                {number,number,number,number}
+               </span>
+              </strong>
+              red when number, rgba quadruple or rgb triple otherwise
+              <li>
+               <code>
+                g
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               (
+               <em>
+                optional
+               </em>
+               )
+               <li>
+                <code>
+                 b
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+                (
+                <em>
+                 optional
+                </em>
+                )
+                <li>
+                 <code>
+                  a
+                 </code>
+                 <strong>
+                  <span class="type">
+                   number
+                  </span>
+                 </strong>
+                 (
+                 <em>
+                  optional
+                 </em>
+                 )
+                </li>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                nil
+               </span>
+              </strong>
+             </li>
+            </ol>
+           </div>
+          </main>
+          <hr/>
+          <footer>
+           <p>
+            <a href="#top" id="back-to-top">
+             Back to top
+            </a>
+           </p>
+           <p class="text-small text-grey-dk-100 mb-0">
+            Copyright © 2022 Recoil team. Distributed by an
+            <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html#SEC1">
+             GPL2 license.
+            </a>
+           </p>
+           <div class="d-flex mt-2">
+            <p class="text-small text-grey-dk-000 mb-0">
+             <a href="https://github.com/beyond-all-reason/spring/tree/BAR105/doc/site/ldoc/modules/OpenGL.html" id="edit-this-page">
+              Edit this page on GitHub
+             </a>
+            </p>
+           </div>
+          </footer>
+         </div>
+        </div>
+        <div class="search-overlay">
+        </div>
+       </div>
+      </body>
+     </link>
+    </meta>
+   </meta>
+  </meta>
+ </head>
+</html>

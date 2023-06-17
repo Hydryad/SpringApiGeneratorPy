@@ -1,0 +1,3720 @@
+<!DOCTYPE html>
+<html lang="en-US">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible"/>
+  <script src="/spring/assets/js/theme-switcher.js">
+  </script>
+  <link href="/spring/assets/css/just-the-docs-themes.css" rel="stylesheet"/>
+  <script src="/spring/assets/js/vendor/lunr.min.js">
+  </script>
+  <script src="/spring/assets/js/just-the-docs.js">
+  </script>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   LuaHandleSynced | Recoil
+  </title>
+  <meta content="Jekyll v3.9.3" name="generator">
+   <meta content="LuaHandleSynced" property="og:title">
+    <meta content="en_US" property="og:locale">
+     <meta content="Callins, functions called by the Engine (Synced)" name="description"/>
+     <meta content="Callins, functions called by the Engine (Synced)" property="og:description"/>
+     <link href="https://beyond-all-reason.github.io/spring/ldoc/modules/LuaHandleSynced.html" rel="canonical">
+      <meta content="https://beyond-all-reason.github.io/spring/ldoc/modules/LuaHandleSynced.html" property="og:url"/>
+      <meta content="Recoil" property="og:site_name"/>
+      <meta content="website" property="og:type"/>
+      <meta content="summary" name="twitter:card"/>
+      <meta content="LuaHandleSynced" property="twitter:title"/>
+      <script type="application/ld+json">
+       {"@context":"https://schema.org","@type":"WebPage","description":"Callins, functions called by the Engine (Synced)","headline":"LuaHandleSynced","url":"https://beyond-all-reason.github.io/spring/ldoc/modules/LuaHandleSynced.html"}
+      </script>
+      <body>
+       <a class="skip-to-main" href="#main-content">
+        Skip to main content
+       </a>
+       <svg class="d-none" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="svg-link" viewbox="0 0 24 24">
+         <title>
+          Link
+         </title>
+         <svg class="feather feather-link" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71">
+          </path>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71">
+          </path>
+         </svg>
+        </symbol>
+        <symbol id="svg-menu" viewbox="0 0 24 24">
+         <title>
+          Menu
+         </title>
+         <svg class="feather feather-menu" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <line x1="3" x2="21" y1="12" y2="12">
+          </line>
+          <line x1="3" x2="21" y1="6" y2="6">
+          </line>
+          <line x1="3" x2="21" y1="18" y2="18">
+          </line>
+         </svg>
+        </symbol>
+        <symbol id="svg-arrow-right" viewbox="0 0 24 24">
+         <title>
+          Expand
+         </title>
+         <svg class="feather feather-chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="9 18 15 12 9 6">
+          </polyline>
+         </svg>
+        </symbol>
+        <symbol class="feather feather-external-link" fill="none" height="24" id="svg-external-link" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24">
+         <title id="svg-external-link-title">
+          (external link)
+         </title>
+         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6">
+         </path>
+         <polyline points="15 3 21 3 21 9">
+         </polyline>
+         <line x1="10" x2="21" y1="14" y2="3">
+         </line>
+        </symbol>
+        <symbol id="svg-doc" viewbox="0 0 24 24">
+         <title>
+          Document
+         </title>
+         <svg class="feather feather-file" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z">
+          </path>
+          <polyline points="13 2 13 9 20 9">
+          </polyline>
+         </svg>
+        </symbol>
+        <symbol id="svg-search" viewbox="0 0 24 24">
+         <title>
+          Search
+         </title>
+         <svg class="feather feather-search" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="11" cy="11" r="8">
+          </circle>
+          <line x1="21" x2="16.65" y1="21" y2="16.65">
+          </line>
+         </svg>
+        </symbol>
+        <symbol id="svg-copy" viewbox="0 0 16 16">
+         <title>
+          Copy
+         </title>
+         <svg class="bi bi-clipboard" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z">
+          </path>
+          <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z">
+          </path>
+         </svg>
+        </symbol>
+        <symbol id="svg-copied" viewbox="0 0 16 16">
+         <title>
+          Copied
+         </title>
+         <svg class="bi bi-clipboard-check-fill" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z">
+          </path>
+          <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z">
+          </path>
+         </svg>
+        </symbol>
+       </svg>
+       <div class="side-bar">
+        <div class="site-header" role="banner">
+         <a class="site-title lh-tight" href="/spring/">
+          Recoil
+         </a>
+         <button aria-label="Toggle menu" aria-pressed="false" class="site-button btn-reset" id="menu-button">
+          <svg aria-hidden="true" class="icon" viewbox="0 0 24 24">
+           <use xlink:href="#svg-menu">
+           </use>
+          </svg>
+         </button>
+        </div>
+        <nav aria-label="Main" class="site-nav" id="site-nav">
+         <ul class="nav-list">
+          <li class="nav-list-item">
+           <a class="nav-list-link" href="/spring/">
+            Home
+           </a>
+           <li class="nav-list-item">
+            <button aria-label="toggle items in Articles category" aria-pressed="false" class="nav-list-expander btn-reset">
+             <svg aria-hidden="true" viewbox="0 0 24 24">
+              <use xlink:href="#svg-arrow-right">
+              </use>
+             </svg>
+            </button>
+            <a class="nav-list-link" href="/spring/articles">
+             Articles
+            </a>
+            <ul class="nav-list">
+             <li class="nav-list-item">
+              <a class="nav-list-link" href="/spring/articles/team-terminology">
+               Team terminology
+              </a>
+              <li class="nav-list-item">
+               <a class="nav-list-link" href="/spring/articles/select-command/">
+                The select command
+               </a>
+               <li class="nav-list-item">
+                <a class="nav-list-link" href="/spring/articles/unit-defs">
+                 Unit defs
+                </a>
+                <li class="nav-list-item">
+                 <a class="nav-list-link" href="/spring/articles/units-of-measurement">
+                  Units of measurement
+                 </a>
+                 <li class="nav-list-item">
+                  <a class="nav-list-link" href="/spring/articles/vfs-basics">
+                   VFS Basics
+                  </a>
+                 </li>
+                </li>
+               </li>
+              </li>
+             </li>
+            </ul>
+            <li class="nav-list-item">
+             <button aria-label="toggle items in Guides category" aria-pressed="false" class="nav-list-expander btn-reset">
+              <svg aria-hidden="true" viewbox="0 0 24 24">
+               <use xlink:href="#svg-arrow-right">
+               </use>
+              </svg>
+             </button>
+             <a class="nav-list-link" href="/spring/guides">
+              Guides
+             </a>
+             <ul class="nav-list">
+              <li class="nav-list-item">
+               <a class="nav-list-link" href="/spring/guides/configuration-variables/">
+                Configuration Variables
+               </a>
+               <li class="nav-list-item">
+                <a class="nav-list-link" href="/spring/guides/glossary/">
+                 Glossary
+                </a>
+                <li class="nav-list-item">
+                 <a class="nav-list-link" href="/spring/guides/headless-and-dedi">
+                  Headless and dedicated
+                 </a>
+                 <li class="nav-list-item">
+                  <a class="nav-list-link" href="/spring/guides/lua-vbo-vao">
+                   Lua VBO and VAO
+                  </a>
+                  <li class="nav-list-item">
+                   <a class="nav-list-link" href="/spring/guides/synced-commands/">
+                    Synced Commands
+                   </a>
+                   <li class="nav-list-item">
+                    <a class="nav-list-link" href="/spring/guides/unsynced-commands/">
+                     Unsynced Commands
+                    </a>
+                    <li class="nav-list-item">
+                     <a class="nav-list-link" href="/spring/guides/weapon-defs/">
+                      Weapon Defs
+                     </a>
+                    </li>
+                   </li>
+                  </li>
+                 </li>
+                </li>
+               </li>
+              </li>
+             </ul>
+             <li class="nav-list-item">
+              <button aria-label="toggle items in Development category" aria-pressed="false" class="nav-list-expander btn-reset">
+               <svg aria-hidden="true" viewbox="0 0 24 24">
+                <use xlink:href="#svg-arrow-right">
+                </use>
+               </svg>
+              </button>
+              <a class="nav-list-link" href="/spring/development">
+               Development
+              </a>
+              <ul class="nav-list">
+               <li class="nav-list-item">
+                <a class="nav-list-link" href="/spring/development/build-with-docker">
+                 Building with Docker
+                </a>
+                <li class="nav-list-item">
+                 <a class="nav-list-link" href="/spring/development/build-without-docker">
+                  Building without Docker
+                 </a>
+                </li>
+               </li>
+              </ul>
+              <li class="nav-list-item active">
+               <button aria-label="toggle items in Lua API category" aria-pressed="true" class="nav-list-expander btn-reset">
+                <svg aria-hidden="true" viewbox="0 0 24 24">
+                 <use xlink:href="#svg-arrow-right">
+                 </use>
+                </svg>
+               </button>
+               <a class="nav-list-link" href="/spring/lua-api">
+                Lua API
+               </a>
+               <ul class="nav-list">
+                <li class="nav-list-item">
+                 <a class="nav-list-link" href="/spring/ldoc/modules/BitOps.html">
+                  BitOps
+                 </a>
+                 <li class="nav-list-item">
+                  <a class="nav-list-link" href="/spring/ldoc/modules/CMD.html">
+                   CMD
+                  </a>
+                  <li class="nav-list-item">
+                   <a class="nav-list-link" href="/spring/ldoc/modules/CMDTYPE.html">
+                    CMDTYPE
+                   </a>
+                   <li class="nav-list-item">
+                    <a class="nav-list-link" href="/spring/ldoc/modules/COB.html">
+                     COB
+                    </a>
+                    <li class="nav-list-item">
+                     <a class="nav-list-link" href="/spring/ldoc/modules/Engine.html">
+                      Engine
+                     </a>
+                     <li class="nav-list-item">
+                      <a class="nav-list-link" href="/spring/ldoc/modules/FBO.html">
+                       FBO
+                      </a>
+                      <li class="nav-list-item">
+                       <a class="nav-list-link" href="/spring/ldoc/modules/GL.html">
+                        GL
+                       </a>
+                       <li class="nav-list-item">
+                        <a class="nav-list-link" href="/spring/ldoc/modules/Game.html">
+                         Game
+                        </a>
+                        <li class="nav-list-item">
+                         <a class="nav-list-link" href="/spring/ldoc/modules/LuaHandle.html">
+                          LuaHandle
+                         </a>
+                         <li class="nav-list-item active">
+                          <a class="nav-list-link active" href="/spring/ldoc/modules/LuaHandleSynced.html">
+                           LuaHandleSynced
+                          </a>
+                          <li class="nav-list-item">
+                           <a class="nav-list-link" href="/spring/ldoc/modules/LuaRules.html">
+                            LuaRules
+                           </a>
+                           <li class="nav-list-item">
+                            <a class="nav-list-link" href="/spring/ldoc/modules/LuaVAO.html">
+                             LuaVAO
+                            </a>
+                            <li class="nav-list-item">
+                             <a class="nav-list-link" href="/spring/ldoc/modules/LuaVBO.html">
+                              LuaVBO
+                             </a>
+                             <li class="nav-list-item">
+                              <a class="nav-list-link" href="/spring/ldoc/modules/LuaZip.html">
+                               LuaZip
+                              </a>
+                              <li class="nav-list-item">
+                               <a class="nav-list-link" href="/spring/ldoc/modules/MathExtra.html">
+                                MathExtra
+                               </a>
+                               <li class="nav-list-item">
+                                <a class="nav-list-link" href="/spring/ldoc/modules/MetalMap.html">
+                                 MetalMap
+                                </a>
+                                <li class="nav-list-item">
+                                 <a class="nav-list-link" href="/spring/ldoc/modules/MoveCtrl.html">
+                                  MoveCtrl
+                                 </a>
+                                 <li class="nav-list-item">
+                                  <a class="nav-list-link" href="/spring/ldoc/modules/OpenGL.html">
+                                   OpenGL
+                                  </a>
+                                  <li class="nav-list-item">
+                                   <a class="nav-list-link" href="/spring/ldoc/modules/Platform.html">
+                                    Platform
+                                   </a>
+                                   <li class="nav-list-item">
+                                    <a class="nav-list-link" href="/spring/ldoc/modules/RBO.html">
+                                     RBO
+                                    </a>
+                                    <li class="nav-list-item">
+                                     <a class="nav-list-link" href="/spring/ldoc/modules/Shaders.html">
+                                      Shaders
+                                     </a>
+                                     <li class="nav-list-item">
+                                      <a class="nav-list-link" href="/spring/ldoc/modules/SyncedCtrl.html">
+                                       SyncedCtrl
+                                      </a>
+                                      <li class="nav-list-item">
+                                       <a class="nav-list-link" href="/spring/ldoc/modules/SyncedRead.html">
+                                        SyncedRead
+                                       </a>
+                                       <li class="nav-list-item">
+                                        <a class="nav-list-link" href="/spring/ldoc/modules/UnsyncedCtrl.html">
+                                         UnsyncedCtrl
+                                        </a>
+                                        <li class="nav-list-item">
+                                         <a class="nav-list-link" href="/spring/ldoc/modules/UnsyncedRead.html">
+                                          UnsyncedRead
+                                         </a>
+                                         <li class="nav-list-item">
+                                          <a class="nav-list-link" href="/spring/ldoc/classes/VAO.html">
+                                           VAO
+                                          </a>
+                                          <li class="nav-list-item">
+                                           <a class="nav-list-link" href="/spring/ldoc/classes/VBO.html">
+                                            VBO
+                                           </a>
+                                           <li class="nav-list-item">
+                                            <a class="nav-list-link" href="/spring/ldoc/modules/VFS.html">
+                                             VFS
+                                            </a>
+                                           </li>
+                                          </li>
+                                         </li>
+                                        </li>
+                                       </li>
+                                      </li>
+                                     </li>
+                                    </li>
+                                   </li>
+                                  </li>
+                                 </li>
+                                </li>
+                               </li>
+                              </li>
+                             </li>
+                            </li>
+                           </li>
+                          </li>
+                         </li>
+                        </li>
+                       </li>
+                      </li>
+                     </li>
+                    </li>
+                   </li>
+                  </li>
+                 </li>
+                </li>
+               </ul>
+               <li class="nav-list-item">
+                <a class="nav-list-link" href="/spring/migrating-from-spring/">
+                 Migrating from Spring
+                </a>
+                <li class="nav-list-item">
+                 <a class="nav-list-link" href="/spring/about/">
+                  About
+                 </a>
+                </li>
+               </li>
+              </li>
+             </li>
+            </li>
+           </li>
+          </li>
+         </ul>
+        </nav>
+        <footer class="site-footer">
+         This site uses
+         <a href="https://github.com/just-the-docs/just-the-docs">
+          Just the Docs
+         </a>
+         , a documentation theme for Jekyll.
+        </footer>
+       </div>
+       <div class="main" id="top">
+        <div class="main-header" id="main-header">
+         <div class="search" role="search">
+          <div class="search-input-wrap">
+           <input aria-label="Search Recoil" autocomplete="off" class="search-input" id="search-input" placeholder="Search Recoil" tabindex="0" type="text"/>
+           <label class="search-label" for="search-input">
+            <svg class="search-icon" viewbox="0 0 24 24">
+             <use xlink:href="#svg-search">
+             </use>
+            </svg>
+           </label>
+          </div>
+          <div class="search-results" id="search-results">
+          </div>
+         </div>
+         <nav aria-label="Auxiliary" class="aux-nav">
+          <ul class="aux-nav-list">
+           <li class="aux-nav-list-item">
+            <a class="site-button aux-nav-img aux-nav-matrix" href="https://matrix.to/#/#recoil-rts:matrix.org" rel="noopener noreferrer" target="_blank">
+             <img alt="Matrix Logo" height="32" src="/spring/assets/matrix-logo.svg"/>
+            </a>
+            <li class="aux-nav-list-item">
+             <a class="site-button aux-nav-img aux-nav-github" href="https://github.com/beyond-all-reason/spring" rel="noopener noreferrer" target="_blank">
+              <img alt="Github Logo" height="32" src="/spring/assets/github-mark.svg"/>
+             </a>
+            </li>
+           </li>
+          </ul>
+         </nav>
+         <button aria-label="auto" aria-live="polite" class="theme-toggle" id="theme-toggle" title="Toggles light &amp; dark">
+          <svg aria-hidden="true" class="sun-and-moon" height="24" viewbox="0 0 24 24" width="24">
+           <mask class="moon" id="moon-mask">
+            <rect fill="white" height="100%" width="100%" x="0" y="0">
+            </rect>
+            <circle cx="24" cy="10" fill="black" r="6">
+            </circle>
+           </mask>
+           <circle class="sun" cx="12" cy="12" fill="currentColor" mask="url(#moon-mask)" r="6">
+           </circle>
+           <g class="sun-beams" stroke="currentColor">
+            <line x1="12" x2="12" y1="1" y2="3">
+            </line>
+            <line x1="12" x2="12" y1="21" y2="23">
+            </line>
+            <line x1="4.22" x2="5.64" y1="4.22" y2="5.64">
+            </line>
+            <line x1="18.36" x2="19.78" y1="18.36" y2="19.78">
+            </line>
+            <line x1="1" x2="3" y1="12" y2="12">
+            </line>
+            <line x1="21" x2="23" y1="12" y2="12">
+            </line>
+            <line x1="4.22" x2="5.64" y1="19.78" y2="18.36">
+            </line>
+            <line x1="18.36" x2="19.78" y1="5.64" y2="4.22">
+            </line>
+           </g>
+          </svg>
+         </button>
+        </div>
+        <div class="main-content-wrap" id="main-content-wrap">
+         <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+          <ol class="breadcrumb-nav-list">
+           <li class="breadcrumb-nav-list-item">
+            <a href="/spring/lua-api">
+             Lua API
+            </a>
+            <li class="breadcrumb-nav-list-item">
+             <span>
+              LuaHandleSynced
+             </span>
+            </li>
+           </li>
+          </ol>
+         </nav>
+         <div class="main-content" id="main-content">
+          <main>
+           <h1>
+            Module
+            <code>
+             LuaHandleSynced
+            </code>
+           </h1>
+           <p>
+            Callins, functions called by the Engine (Synced)
+           </p>
+           <p>
+           </p>
+           <h3>
+            See also:
+           </h3>
+           <ul>
+            <li>
+             <a href="https://github.com/beyond-all-reason/spring/blob/BAR105/rts/Lua/LuaHandleSynced.cpp">
+              rts/Lua/LuaHandleSynced.cpp
+             </a>
+            </li>
+           </ul>
+           <h2 class="no_anchor">
+            <a href="#Misc">
+             Misc
+            </a>
+           </h2>
+           <dl class="big-dt">
+            <dt>
+             <a href="#RecvFromSynced">
+              RecvFromSynced
+             </a>
+             <dd>
+              Receives data sent via
+              <code>
+               SendToUnsynced
+              </code>
+              callout.
+             </dd>
+            </dt>
+           </dl>
+           <h2 class="no_anchor">
+            <a href="#Custom_Object_Rendering">
+             Custom Object Rendering
+            </a>
+           </h2>
+           <dl class="big-dt">
+            <dt>
+             <a href="#DrawUnit">
+              DrawUnit
+             </a>
+             <dd>
+              For custom rendering of units
+              <dt>
+               <a href="#DrawFeature">
+                DrawFeature
+               </a>
+               <dd>
+                For custom rendering of features
+                <dt>
+                 <a href="#DrawShield">
+                  DrawShield
+                 </a>
+                 <dd>
+                  For custom rendering of shields.
+                  <dt>
+                   <a href="#DrawProjectile">
+                    DrawProjectile
+                   </a>
+                   <dd>
+                    For custom rendering of weapon (&amp; other) projectiles
+                    <dt>
+                     <a href="#DrawMaterial">
+                      DrawMaterial
+                     </a>
+                     <dd>
+                      <dt>
+                       <a href="#CommandFallback">
+                        CommandFallback
+                       </a>
+                       <dd>
+                        Called when the unit reaches an unknown command in its queue (i.e.
+                        <dt>
+                         <a href="#AllowCommand">
+                          AllowCommand
+                         </a>
+                         <dd>
+                          Called when the command is given, before the unit's queue is altered.
+                          <dt>
+                           <a href="#AllowUnitCreation">
+                            AllowUnitCreation
+                           </a>
+                           <dd>
+                            Called just before unit is created.
+                            <dt>
+                             <a href="#AllowUnitTransfer">
+                              AllowUnitTransfer
+                             </a>
+                             <dd>
+                              Called just before a unit is transferred to a different team.
+                              <dt>
+                               <a href="#AllowUnitBuildStep">
+                                AllowUnitBuildStep
+                               </a>
+                               <dd>
+                                Called just before a unit progresses its build percentage.
+                                <dt>
+                                 <a href="#AllowUnitCaptureStep">
+                                  AllowUnitCaptureStep
+                                 </a>
+                                 <dd>
+                                  <dt>
+                                   <a href="#AllowUnitTransport">
+                                    AllowUnitTransport
+                                   </a>
+                                   <dd>
+                                    <dt>
+                                     <a href="#AllowUnitTransportLoad">
+                                      AllowUnitTransportLoad
+                                     </a>
+                                     <dd>
+                                      <dt>
+                                       <a href="#AllowUnitTransportUnload">
+                                        AllowUnitTransportUnload
+                                       </a>
+                                       <dd>
+                                        <dt>
+                                         <a href="#AllowUnitCloak">
+                                          AllowUnitCloak
+                                         </a>
+                                         <dd>
+                                          <dt>
+                                           <a href="#AllowUnitCloak">
+                                            AllowUnitCloak
+                                           </a>
+                                           <dd>
+                                            <dt>
+                                             <a href="#AllowUnitKamikaze">
+                                              AllowUnitKamikaze
+                                             </a>
+                                             <dd>
+                                              <dt>
+                                               <a href="#AllowFeatureCreation">
+                                                AllowFeatureCreation
+                                               </a>
+                                               <dd>
+                                                Called just before feature is created.
+                                                <dt>
+                                                 <a href="#AllowFeatureBuildStep">
+                                                  AllowFeatureBuildStep
+                                                 </a>
+                                                 <dd>
+                                                  Called just before a feature changes its build percentage.
+                                                  <dt>
+                                                   <a href="#AllowResourceLevel">
+                                                    AllowResourceLevel
+                                                   </a>
+                                                   <dd>
+                                                    Called when a team sets the sharing level of a resource.
+                                                    <dt>
+                                                     <a href="#AllowResourceTransfer">
+                                                      AllowResourceTransfer
+                                                     </a>
+                                                     <dd>
+                                                      Called just before resources are transferred between players.
+                                                      <dt>
+                                                       <a href="#AllowDirectUnitControl">
+                                                        AllowDirectUnitControl
+                                                       </a>
+                                                       <dd>
+                                                        Determines if this unit can be controlled directly in FPS view.
+                                                        <dt>
+                                                         <a href="#AllowBuilderHoldFire">
+                                                          AllowBuilderHoldFire
+                                                         </a>
+                                                         <dd>
+                                                          Called when a construction unit wants to "use his nano beams".
+                                                          <dt>
+                                                           <a href="#AllowStartPosition">
+                                                            AllowStartPosition
+                                                           </a>
+                                                           <dd>
+                                                            Whether a start position should be allowed
+                                                            <dt>
+                                                             <a href="#MoveCtrlNotify">
+                                                              MoveCtrlNotify
+                                                             </a>
+                                                             <dd>
+                                                              Enable both Spring.MoveCtrl.SetCollideStop and Spring.MoveCtrl.SetTrackGround to enable this call-in.
+                                                              <dt>
+                                                               <a href="#TerraformComplete">
+                                                                TerraformComplete
+                                                               </a>
+                                                               <dd>
+                                                                Called when pre-building terrain levelling terraforms are completed (c.f.
+                                                                <dt>
+                                                                 <a href="#UnitPreDamaged">
+                                                                  UnitPreDamaged
+                                                                 </a>
+                                                                 <dd>
+                                                                  Called before damage is applied to the unit, allows fine control over how much damage and impulse is applied.
+                                                                  <dt>
+                                                                   <a href="#FeaturePreDamaged">
+                                                                    FeaturePreDamaged
+                                                                   </a>
+                                                                   <dd>
+                                                                    Called before damage is applied to the feature.
+                                                                    <dt>
+                                                                     <a href="#ShieldPreDamaged">
+                                                                      ShieldPreDamaged
+                                                                     </a>
+                                                                     <dd>
+                                                                      Called before any engine shield-vs-projectile logic executes.
+                                                                      <dt>
+                                                                       <a href="#AllowWeaponTargetCheck">
+                                                                        AllowWeaponTargetCheck
+                                                                       </a>
+                                                                       <dd>
+                                                                        Determines if this weapon can automatically generate targets itself.
+                                                                        <dt>
+                                                                         <a href="#AllowWeaponTarget">
+                                                                          AllowWeaponTarget
+                                                                         </a>
+                                                                         <dd>
+                                                                          Controls blocking of a specific target from being considered during a weapon's periodic auto-targeting sweep.
+                                                                          <dt>
+                                                                           <a href="#AllowWeaponInterceptTarget">
+                                                                            AllowWeaponInterceptTarget
+                                                                           </a>
+                                                                           <dd>
+                                                                            Controls blocking of a specific intercept target from being considered during an interceptor weapon's periodic auto-targeting sweep.
+                                                                           </dd>
+                                                                          </dt>
+                                                                         </dd>
+                                                                        </dt>
+                                                                       </dd>
+                                                                      </dt>
+                                                                     </dd>
+                                                                    </dt>
+                                                                   </dd>
+                                                                  </dt>
+                                                                 </dd>
+                                                                </dt>
+                                                               </dd>
+                                                              </dt>
+                                                             </dd>
+                                                            </dt>
+                                                           </dd>
+                                                          </dt>
+                                                         </dd>
+                                                        </dt>
+                                                       </dd>
+                                                      </dt>
+                                                     </dd>
+                                                    </dt>
+                                                   </dd>
+                                                  </dt>
+                                                 </dd>
+                                                </dt>
+                                               </dd>
+                                              </dt>
+                                             </dd>
+                                            </dt>
+                                           </dd>
+                                          </dt>
+                                         </dd>
+                                        </dt>
+                                       </dd>
+                                      </dt>
+                                     </dd>
+                                    </dt>
+                                   </dd>
+                                  </dt>
+                                 </dd>
+                                </dt>
+                               </dd>
+                              </dt>
+                             </dd>
+                            </dt>
+                           </dd>
+                          </dt>
+                         </dd>
+                        </dt>
+                       </dd>
+                      </dt>
+                     </dd>
+                    </dt>
+                   </dd>
+                  </dt>
+                 </dd>
+                </dt>
+               </dd>
+              </dt>
+             </dd>
+            </dt>
+           </dl>
+           <h2 class="section-header has-description" id="Misc">
+            <a aria-labelledby="Misc" class="anchor-heading" href="#Misc">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            Misc
+           </h2>
+           <p>
+            <hr/>
+           </p>
+           <h3 id="RecvFromSynced">
+            <a aria-labelledby="RecvFromSynced" class="anchor-heading" href="#RecvFromSynced">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            RecvFromSynced(arg1, arg2, argn)
+           </h3>
+           <p>
+            Receives data sent via `SendToUnsynced` callout.
+           </p>
+           <div class="code-example">
+            <p>
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               arg1
+              </code>
+              <strong>
+               <span class="type">
+                any
+               </span>
+              </strong>
+              <li>
+               <code>
+                arg2
+               </code>
+               <strong>
+                <span class="type">
+                 any
+                </span>
+               </strong>
+               <li>
+                <code>
+                 argn
+                </code>
+                <strong>
+                 <span class="type">
+                  any
+                 </span>
+                </strong>
+               </li>
+              </li>
+             </li>
+            </ol>
+           </div>
+           <h2 class="section-header has-description" id="Custom_Object_Rendering">
+            <a aria-labelledby="Custom_Object_Rendering" class="anchor-heading" href="#Custom_Object_Rendering">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            Custom Object Rendering
+           </h2>
+           <p>
+            For the following calls drawMode can be one of the following, notDrawing = 0, normalDraw = 1, shadowDraw = 2, reflectionDraw = 3, refractionDraw = 4, and finally gameDeferredDraw = 5 which was added in 102.0.
+           </p>
+           <h3 id="DrawUnit">
+            <a aria-labelledby="DrawUnit" class="anchor-heading" href="#DrawUnit">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            DrawUnit(unitID, drawMode)
+           </h3>
+           <p>
+            For custom rendering of units
+           </p>
+           <div class="code-example">
+            <p>
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               unitID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                drawMode
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              suppressEngineDraw
+             </li>
+            </ol>
+           </div>
+           <h3 id="DrawFeature">
+            <a aria-labelledby="DrawFeature" class="anchor-heading" href="#DrawFeature">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            DrawFeature(featureID, drawMode)
+           </h3>
+           <p>
+            For custom rendering of features
+           </p>
+           <div class="code-example">
+            <p>
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               featureID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                drawMode
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              suppressEngineDraw
+             </li>
+            </ol>
+           </div>
+           <h3 id="DrawShield">
+            <a aria-labelledby="DrawShield" class="anchor-heading" href="#DrawShield">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            DrawShield(featureID, weaponID, drawMode)
+           </h3>
+           <p>
+            For custom rendering of shields.
+           </p>
+           <div class="code-example">
+            <p>
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               featureID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                weaponID
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               <li>
+                <code>
+                 drawMode
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              suppressEngineDraw
+             </li>
+            </ol>
+           </div>
+           <h3 id="DrawProjectile">
+            <a aria-labelledby="DrawProjectile" class="anchor-heading" href="#DrawProjectile">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            DrawProjectile(projectileID, drawMode)
+           </h3>
+           <p>
+            For custom rendering of weapon (&amp; other) projectiles
+           </p>
+           <div class="code-example">
+            <p>
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               projectileID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                drawMode
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              suppressEngineDraw
+             </li>
+            </ol>
+           </div>
+           <h3 id="DrawMaterial">
+            <a aria-labelledby="DrawMaterial" class="anchor-heading" href="#DrawMaterial">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            DrawMaterial(uuid, drawMode)
+           </h3>
+           <p>
+           </p>
+           <div class="code-example">
+            <p>
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               uuid
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                drawMode
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              suppressEngineDraw
+             </li>
+            </ol>
+           </div>
+           <h3 id="CommandFallback">
+            <a aria-labelledby="CommandFallback" class="anchor-heading" href="#CommandFallback">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            CommandFallback(unitID, unitDefID, unitTeam, cmdID, cmdParams, cmdOptions, cmdTag)
+           </h3>
+           <p>
+            Called when the unit reaches an unknown command in its queue (i.e.
+           </p>
+           <div class="code-example">
+            <p>
+             one not handled by the engine).
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               unitID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                unitDefID
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               <li>
+                <code>
+                 unitTeam
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+                <li>
+                 <code>
+                  cmdID
+                 </code>
+                 <strong>
+                  <span class="type">
+                   number
+                  </span>
+                 </strong>
+                 <li>
+                  <code>
+                   cmdParams
+                  </code>
+                  <strong>
+                   <span class="type">
+                    {number,...}
+                   </span>
+                  </strong>
+                  <li>
+                   <code>
+                    cmdOptions
+                   </code>
+                   <strong>
+                    <span class="type">
+                     cmdOptions
+                    </span>
+                   </strong>
+                   <li>
+                    <code>
+                     cmdTag
+                    </code>
+                    <strong>
+                     <span class="type">
+                      number
+                     </span>
+                    </strong>
+                   </li>
+                  </li>
+                 </li>
+                </li>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                boolean
+               </span>
+              </strong>
+              whether to remove the command from the queue
+             </li>
+            </ol>
+           </div>
+           <h3 id="AllowCommand">
+            <a aria-labelledby="AllowCommand" class="anchor-heading" href="#AllowCommand">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            AllowCommand(unitID, unitDefID, unitTeam, cmdID, cmdParams, cmdOptions, cmdTag, synced, fromLua)
+           </h3>
+           <p>
+            Called when the command is given, before the unit's queue is altered.
+           </p>
+           <div class="code-example">
+            <p>
+             The queue remains untouched when a command is blocked, whether it would be queued or replace the queue.
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               unitID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                unitDefID
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               <li>
+                <code>
+                 unitTeam
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+                <li>
+                 <code>
+                  cmdID
+                 </code>
+                 <strong>
+                  <span class="type">
+                   number
+                  </span>
+                 </strong>
+                 <li>
+                  <code>
+                   cmdParams
+                  </code>
+                  <strong>
+                   <span class="type">
+                    {number,...}
+                   </span>
+                  </strong>
+                  <li>
+                   <code>
+                    cmdOptions
+                   </code>
+                   <strong>
+                    <span class="type">
+                     cmdOptions
+                    </span>
+                   </strong>
+                   <li>
+                    <code>
+                     cmdTag
+                    </code>
+                    <strong>
+                     <span class="type">
+                      number
+                     </span>
+                    </strong>
+                    <li>
+                     <code>
+                      synced
+                     </code>
+                     <strong>
+                      <span class="type">
+                       bool
+                      </span>
+                     </strong>
+                     <li>
+                      <code>
+                       fromLua
+                      </code>
+                      <strong>
+                       <span class="type">
+                        bool
+                       </span>
+                      </strong>
+                     </li>
+                    </li>
+                   </li>
+                  </li>
+                 </li>
+                </li>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              whether it should be let into the queue.
+             </li>
+            </ol>
+           </div>
+           <h3 id="AllowUnitCreation">
+            <a aria-labelledby="AllowUnitCreation" class="anchor-heading" href="#AllowUnitCreation">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            AllowUnitCreation(unitDefID, builderID, builderTeam, x, y, z, facing)
+           </h3>
+           <p>
+            Called just before unit is created.
+           </p>
+           <div class="code-example">
+            <p>
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               unitDefID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                builderID
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               <li>
+                <code>
+                 builderTeam
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+                <li>
+                 <code>
+                  x
+                 </code>
+                 <strong>
+                  <span class="type">
+                   number
+                  </span>
+                 </strong>
+                 <li>
+                  <code>
+                   y
+                  </code>
+                  <strong>
+                   <span class="type">
+                    number
+                   </span>
+                  </strong>
+                  <li>
+                   <code>
+                    z
+                   </code>
+                   <strong>
+                    <span class="type">
+                     number
+                    </span>
+                   </strong>
+                   <li>
+                    <code>
+                     facing
+                    </code>
+                    <strong>
+                     <span class="type">
+                      number
+                     </span>
+                    </strong>
+                   </li>
+                  </li>
+                 </li>
+                </li>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              whether or not the creation is permitted.
+             </li>
+            </ol>
+           </div>
+           <h3 id="AllowUnitTransfer">
+            <a aria-labelledby="AllowUnitTransfer" class="anchor-heading" href="#AllowUnitTransfer">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            AllowUnitTransfer(unitID, unitDefID, oldTeam, newTeam, capture)
+           </h3>
+           <p>
+            Called just before a unit is transferred to a different team.
+           </p>
+           <div class="code-example">
+            <p>
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               unitID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                unitDefID
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               <li>
+                <code>
+                 oldTeam
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+                <li>
+                 <code>
+                  newTeam
+                 </code>
+                 <strong>
+                  <span class="type">
+                   number
+                  </span>
+                 </strong>
+                 <li>
+                  <code>
+                   capture
+                  </code>
+                  <strong>
+                   <span class="type">
+                    bool
+                   </span>
+                  </strong>
+                 </li>
+                </li>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              whether or not the transfer is permitted.
+             </li>
+            </ol>
+           </div>
+           <h3 id="AllowUnitBuildStep">
+            <a aria-labelledby="AllowUnitBuildStep" class="anchor-heading" href="#AllowUnitBuildStep">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            AllowUnitBuildStep(builderID, builderTeam, unitID, unitDefID, part)
+           </h3>
+           <p>
+            Called just before a unit progresses its build percentage.
+           </p>
+           <div class="code-example">
+            <p>
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               builderID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                builderTeam
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               <li>
+                <code>
+                 unitID
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+                <li>
+                 <code>
+                  unitDefID
+                 </code>
+                 <strong>
+                  <span class="type">
+                   number
+                  </span>
+                 </strong>
+                 <li>
+                  <code>
+                   part
+                  </code>
+                  <strong>
+                   <span class="type">
+                    number
+                   </span>
+                  </strong>
+                 </li>
+                </li>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              whether or not the build makes progress.
+             </li>
+            </ol>
+           </div>
+           <h3 id="AllowUnitCaptureStep">
+            <a aria-labelledby="AllowUnitCaptureStep" class="anchor-heading" href="#AllowUnitCaptureStep">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            AllowUnitCaptureStep(builderID, builderTeam, unitID, unitDefID, part)
+           </h3>
+           <p>
+           </p>
+           <div class="code-example">
+            <p>
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               builderID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                builderTeam
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               <li>
+                <code>
+                 unitID
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+                <li>
+                 <code>
+                  unitDefID
+                 </code>
+                 <strong>
+                  <span class="type">
+                   number
+                  </span>
+                 </strong>
+                 <li>
+                  <code>
+                   part
+                  </code>
+                  <strong>
+                   <span class="type">
+                    number
+                   </span>
+                  </strong>
+                 </li>
+                </li>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              whether or not the capture makes progress.
+             </li>
+            </ol>
+           </div>
+           <h3 id="AllowUnitTransport">
+            <a aria-labelledby="AllowUnitTransport" class="anchor-heading" href="#AllowUnitTransport">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            AllowUnitTransport(transporterID, transporterUnitDefID, transporterTeam, transporteeID, transporteeUnitDefID, transporteeTeam)
+           </h3>
+           <p>
+           </p>
+           <div class="code-example">
+            <p>
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               transporterID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                transporterUnitDefID
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               <li>
+                <code>
+                 transporterTeam
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+                <li>
+                 <code>
+                  transporteeID
+                 </code>
+                 <strong>
+                  <span class="type">
+                   number
+                  </span>
+                 </strong>
+                 <li>
+                  <code>
+                   transporteeUnitDefID
+                  </code>
+                  <strong>
+                   <span class="type">
+                    number
+                   </span>
+                  </strong>
+                  <li>
+                   <code>
+                    transporteeTeam
+                   </code>
+                   <strong>
+                    <span class="type">
+                     number
+                    </span>
+                   </strong>
+                  </li>
+                 </li>
+                </li>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              whether or not the transport is allowed
+             </li>
+            </ol>
+           </div>
+           <h3 id="AllowUnitTransportLoad">
+            <a aria-labelledby="AllowUnitTransportLoad" class="anchor-heading" href="#AllowUnitTransportLoad">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            AllowUnitTransportLoad(transporterID, transporterUnitDefID, transporterTeam, transporteeID, transporteeUnitDefID, transporteeTeam, x, y, z)
+           </h3>
+           <p>
+           </p>
+           <div class="code-example">
+            <p>
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               transporterID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                transporterUnitDefID
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               <li>
+                <code>
+                 transporterTeam
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+                <li>
+                 <code>
+                  transporteeID
+                 </code>
+                 <strong>
+                  <span class="type">
+                   number
+                  </span>
+                 </strong>
+                 <li>
+                  <code>
+                   transporteeUnitDefID
+                  </code>
+                  <strong>
+                   <span class="type">
+                    number
+                   </span>
+                  </strong>
+                  <li>
+                   <code>
+                    transporteeTeam
+                   </code>
+                   <strong>
+                    <span class="type">
+                     number
+                    </span>
+                   </strong>
+                   <li>
+                    <code>
+                     x
+                    </code>
+                    <strong>
+                     <span class="type">
+                      number
+                     </span>
+                    </strong>
+                    <li>
+                     <code>
+                      y
+                     </code>
+                     <strong>
+                      <span class="type">
+                       number
+                      </span>
+                     </strong>
+                     <li>
+                      <code>
+                       z
+                      </code>
+                      <strong>
+                       <span class="type">
+                        number
+                       </span>
+                      </strong>
+                     </li>
+                    </li>
+                   </li>
+                  </li>
+                 </li>
+                </li>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              whether or not the transport load is allowed
+             </li>
+            </ol>
+           </div>
+           <h3 id="AllowUnitTransportUnload">
+            <a aria-labelledby="AllowUnitTransportUnload" class="anchor-heading" href="#AllowUnitTransportUnload">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            AllowUnitTransportUnload(transporterID, transporterUnitDefID, transporterTeam, transporteeID, transporteeUnitDefID, transporteeTeam, x, y, z)
+           </h3>
+           <p>
+           </p>
+           <div class="code-example">
+            <p>
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               transporterID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                transporterUnitDefID
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               <li>
+                <code>
+                 transporterTeam
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+                <li>
+                 <code>
+                  transporteeID
+                 </code>
+                 <strong>
+                  <span class="type">
+                   number
+                  </span>
+                 </strong>
+                 <li>
+                  <code>
+                   transporteeUnitDefID
+                  </code>
+                  <strong>
+                   <span class="type">
+                    number
+                   </span>
+                  </strong>
+                  <li>
+                   <code>
+                    transporteeTeam
+                   </code>
+                   <strong>
+                    <span class="type">
+                     number
+                    </span>
+                   </strong>
+                   <li>
+                    <code>
+                     x
+                    </code>
+                    <strong>
+                     <span class="type">
+                      number
+                     </span>
+                    </strong>
+                    <li>
+                     <code>
+                      y
+                     </code>
+                     <strong>
+                      <span class="type">
+                       number
+                      </span>
+                     </strong>
+                     <li>
+                      <code>
+                       z
+                      </code>
+                      <strong>
+                       <span class="type">
+                        number
+                       </span>
+                      </strong>
+                     </li>
+                    </li>
+                   </li>
+                  </li>
+                 </li>
+                </li>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              whether or not the transport unload is allowed
+             </li>
+            </ol>
+           </div>
+           <h3 id="AllowUnitCloak">
+            <a aria-labelledby="AllowUnitCloak" class="anchor-heading" href="#AllowUnitCloak">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            AllowUnitCloak(unitID[, enemyID])
+           </h3>
+           <p>
+           </p>
+           <div class="code-example">
+            <p>
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               unitID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                enemyID
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               (
+               <em>
+                optional
+               </em>
+               )
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              whether unit is allowed to cloak
+             </li>
+            </ol>
+           </div>
+           <h3 id="AllowUnitCloak">
+            <a aria-labelledby="AllowUnitCloak" class="anchor-heading" href="#AllowUnitCloak">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            AllowUnitCloak(unitID[, objectID[, weaponNum]])
+           </h3>
+           <p>
+           </p>
+           <div class="code-example">
+            <p>
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               unitID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                objectID
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               (
+               <em>
+                optional
+               </em>
+               )
+               <li>
+                <code>
+                 weaponNum
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+                (
+                <em>
+                 optional
+                </em>
+                )
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              whether unit is allowed to decloak
+             </li>
+            </ol>
+           </div>
+           <h3 id="AllowUnitKamikaze">
+            <a aria-labelledby="AllowUnitKamikaze" class="anchor-heading" href="#AllowUnitKamikaze">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            AllowUnitKamikaze(unitID, targetID)
+           </h3>
+           <p>
+           </p>
+           <div class="code-example">
+            <p>
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               unitID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                targetID
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              whether unit is allowed to selfd
+             </li>
+            </ol>
+           </div>
+           <h3 id="AllowFeatureCreation">
+            <a aria-labelledby="AllowFeatureCreation" class="anchor-heading" href="#AllowFeatureCreation">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            AllowFeatureCreation(featureDefID, teamID, x, y, z)
+           </h3>
+           <p>
+            Called just before feature is created.
+           </p>
+           <div class="code-example">
+            <p>
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               featureDefID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                teamID
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               <li>
+                <code>
+                 x
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+                <li>
+                 <code>
+                  y
+                 </code>
+                 <strong>
+                  <span class="type">
+                   number
+                  </span>
+                 </strong>
+                 <li>
+                  <code>
+                   z
+                  </code>
+                  <strong>
+                   <span class="type">
+                    number
+                   </span>
+                  </strong>
+                 </li>
+                </li>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              whether or not the creation is permitted
+             </li>
+            </ol>
+           </div>
+           <h3 id="AllowFeatureBuildStep">
+            <a aria-labelledby="AllowFeatureBuildStep" class="anchor-heading" href="#AllowFeatureBuildStep">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            AllowFeatureBuildStep(builderID, builderTeam, featureID, featureDefID, part)
+           </h3>
+           <p>
+            Called just before a feature changes its build percentage.
+           </p>
+           <div class="code-example">
+            <p>
+             Note that this is also called for resurrecting features, and for refilling features with resources before resurrection. On reclaim the part values are negative, and on refill and ressurect they are positive. Part is the percentage the feature be built or reclaimed per frame. Eg. for a 30 workertime builder, that's a build power of 1 per frame. For a 50 buildtime feature reclaimed by this builder, part will be 100/-50(/1) = -2%, or -0.02 numerically.
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               builderID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                builderTeam
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               <li>
+                <code>
+                 featureID
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+                <li>
+                 <code>
+                  featureDefID
+                 </code>
+                 <strong>
+                  <span class="type">
+                   number
+                  </span>
+                 </strong>
+                 <li>
+                  <code>
+                   part
+                  </code>
+                  <strong>
+                   <span class="type">
+                    number
+                   </span>
+                  </strong>
+                 </li>
+                </li>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              whether or not the change is permitted
+             </li>
+            </ol>
+           </div>
+           <h3 id="AllowResourceLevel">
+            <a aria-labelledby="AllowResourceLevel" class="anchor-heading" href="#AllowResourceLevel">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            AllowResourceLevel(teamID, res, level)
+           </h3>
+           <p>
+            Called when a team sets the sharing level of a resource.
+           </p>
+           <div class="code-example">
+            <p>
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               teamID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                res
+               </code>
+               <strong>
+                <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">
+                 string
+                </a>
+               </strong>
+               <li>
+                <code>
+                 level
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              whether or not the sharing level is permitted
+             </li>
+            </ol>
+           </div>
+           <h3 id="AllowResourceTransfer">
+            <a aria-labelledby="AllowResourceTransfer" class="anchor-heading" href="#AllowResourceTransfer">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            AllowResourceTransfer(oldTeamID, newTeamID, res, amount)
+           </h3>
+           <p>
+            Called just before resources are transferred between players.
+           </p>
+           <div class="code-example">
+            <p>
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               oldTeamID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                newTeamID
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               <li>
+                <code>
+                 res
+                </code>
+                <strong>
+                 <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">
+                  string
+                 </a>
+                </strong>
+                <li>
+                 <code>
+                  amount
+                 </code>
+                 <strong>
+                  <span class="type">
+                   number
+                  </span>
+                 </strong>
+                </li>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              whether or not the transfer is permitted.
+             </li>
+            </ol>
+           </div>
+           <h3 id="AllowDirectUnitControl">
+            <a aria-labelledby="AllowDirectUnitControl" class="anchor-heading" href="#AllowDirectUnitControl">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            AllowDirectUnitControl(unitID, unitDefID, unitTeam, playerID)
+           </h3>
+           <p>
+            Determines if this unit can be controlled directly in FPS view.
+           </p>
+           <div class="code-example">
+            <p>
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               unitID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                unitDefID
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               <li>
+                <code>
+                 unitTeam
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+                <li>
+                 <code>
+                  playerID
+                 </code>
+                 <strong>
+                  <span class="type">
+                   number
+                  </span>
+                 </strong>
+                </li>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              allow
+             </li>
+            </ol>
+           </div>
+           <h3 id="AllowBuilderHoldFire">
+            <a aria-labelledby="AllowBuilderHoldFire" class="anchor-heading" href="#AllowBuilderHoldFire">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            AllowBuilderHoldFire(unitID, unitDefID, action)
+           </h3>
+           <p>
+            Called when a construction unit wants to "use his nano beams".
+           </p>
+           <div class="code-example">
+            <p>
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               unitID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                unitDefID
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               <li>
+                <code>
+                 action
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+                one of following:
+                <p>
+                 -1 Build CMD.REPAIR Repair CMD.RECLAIM Reclaim CMD.RESTORE Restore CMD.RESURRECT Resurrect CMD.CAPTURE Capture
+                </p>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              actionAllowed
+             </li>
+            </ol>
+           </div>
+           <h3 id="AllowStartPosition">
+            <a aria-labelledby="AllowStartPosition" class="anchor-heading" href="#AllowStartPosition">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            AllowStartPosition(playerID, teamID, readyState, clampedX, clampedY, clampedZ, rawX, rawY, rawZ)
+           </h3>
+           <p>
+            Whether a start position should be allowed
+           </p>
+           <div class="code-example">
+            <p>
+             clamped{X,Y,Z} are the coordinates clamped into start-boxes, raw is where player tried to place their marker. The readyState can be any one of: 0 - player picked a position, 1 - player clicked ready, 2 - player pressed ready OR the game was force-started (player did not click ready, but is now forcibly readied) or 3 - the player failed to load. The default 'failed to choose' start-position is the north-west point of their startbox, or (0,0,0) if they do not have a startbox. NB: The order of the parameters changed with the addition of teamID in 104.0. Previouly it was: clampedX, clampedY, clampedZ, playerID, readyState, rawX, rawY, rawZ
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               playerID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                teamID
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               <li>
+                <code>
+                 readyState
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+                <li>
+                 <code>
+                  clampedX
+                 </code>
+                 <strong>
+                  <span class="type">
+                   number
+                  </span>
+                 </strong>
+                 <li>
+                  <code>
+                   clampedY
+                  </code>
+                  <strong>
+                   <span class="type">
+                    number
+                   </span>
+                  </strong>
+                  <li>
+                   <code>
+                    clampedZ
+                   </code>
+                   <strong>
+                    <span class="type">
+                     number
+                    </span>
+                   </strong>
+                   <li>
+                    <code>
+                     rawX
+                    </code>
+                    <strong>
+                     <span class="type">
+                      number
+                     </span>
+                    </strong>
+                    <li>
+                     <code>
+                      rawY
+                     </code>
+                     <strong>
+                      <span class="type">
+                       number
+                      </span>
+                     </strong>
+                     <li>
+                      <code>
+                       rawZ
+                      </code>
+                      <strong>
+                       <span class="type">
+                        number
+                       </span>
+                      </strong>
+                     </li>
+                    </li>
+                   </li>
+                  </li>
+                 </li>
+                </li>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              allow
+             </li>
+            </ol>
+           </div>
+           <h3 id="MoveCtrlNotify">
+            <a aria-labelledby="MoveCtrlNotify" class="anchor-heading" href="#MoveCtrlNotify">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            MoveCtrlNotify(unitID, unitDefID, unitTeam, data)
+           </h3>
+           <p>
+            Enable both Spring.MoveCtrl.SetCollideStop and Spring.MoveCtrl.SetTrackGround to enable this call-in.
+           </p>
+           <div class="code-example">
+            <p>
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               unitID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                unitDefID
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               <li>
+                <code>
+                 unitTeam
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+                <li>
+                 <code>
+                  data
+                 </code>
+                 <strong>
+                  <span class="type">
+                   number
+                  </span>
+                 </strong>
+                 was supposed to indicate the type of notification but currently never has a value other than 1 ("unit hit the ground").
+                </li>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              whether or not the unit should remain script-controlled (false) or return to engine controlled movement (true).
+             </li>
+            </ol>
+           </div>
+           <h3 id="TerraformComplete">
+            <a aria-labelledby="TerraformComplete" class="anchor-heading" href="#TerraformComplete">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            TerraformComplete(unitID, unitDefID, unitTeam, buildUnitID, buildUnitDefID, buildUnitTeam)
+           </h3>
+           <p>
+            Called when pre-building terrain levelling terraforms are completed (c.f.
+           </p>
+           <div class="code-example">
+            <p>
+             levelGround)
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               unitID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                unitDefID
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               <li>
+                <code>
+                 unitTeam
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+                <li>
+                 <code>
+                  buildUnitID
+                 </code>
+                 <strong>
+                  <span class="type">
+                   number
+                  </span>
+                 </strong>
+                 <li>
+                  <code>
+                   buildUnitDefID
+                  </code>
+                  <strong>
+                   <span class="type">
+                    number
+                   </span>
+                  </strong>
+                  <li>
+                   <code>
+                    buildUnitTeam
+                   </code>
+                   <strong>
+                    <span class="type">
+                     number
+                    </span>
+                   </strong>
+                  </li>
+                 </li>
+                </li>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              if true the current build order is terminated
+             </li>
+            </ol>
+           </div>
+           <h3 id="UnitPreDamaged">
+            <a aria-labelledby="UnitPreDamaged" class="anchor-heading" href="#UnitPreDamaged">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            UnitPreDamaged(unitID, unitDefID, unitTeam, damage, paralyzer[, weaponDefID[, projectileID[, attackerID[, attackerDefID[, attackerTeam]]]]])
+           </h3>
+           <p>
+            Called before damage is applied to the unit, allows fine control over how much damage and impulse is applied.
+           </p>
+           <div class="code-example">
+            <p>
+             Called after every damage modification (even `HitByWeaponId`) but before the damage is applied expects two numbers returned by lua code: 1st is stored under *newDamage if newDamage != NULL 2nd is stored under *impulseMult if impulseMult != NULL
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               unitID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                unitDefID
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               <li>
+                <code>
+                 unitTeam
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+                <li>
+                 <code>
+                  damage
+                 </code>
+                 <strong>
+                  <span class="type">
+                   number
+                  </span>
+                 </strong>
+                 <li>
+                  <code>
+                   paralyzer
+                  </code>
+                  <strong>
+                   <span class="type">
+                    bool
+                   </span>
+                  </strong>
+                  <li>
+                   <code>
+                    weaponDefID
+                   </code>
+                   <strong>
+                    <span class="type">
+                     number
+                    </span>
+                   </strong>
+                   Synced Only (
+                   <em>
+                    optional
+                   </em>
+                   )
+                   <li>
+                    <code>
+                     projectileID
+                    </code>
+                    <strong>
+                     <span class="type">
+                      number
+                     </span>
+                    </strong>
+                    Synced Only (
+                    <em>
+                     optional
+                    </em>
+                    )
+                    <li>
+                     <code>
+                      attackerID
+                     </code>
+                     <strong>
+                      <span class="type">
+                       number
+                      </span>
+                     </strong>
+                     Synced Only (
+                     <em>
+                      optional
+                     </em>
+                     )
+                     <li>
+                      <code>
+                       attackerDefID
+                      </code>
+                      <strong>
+                       <span class="type">
+                        number
+                       </span>
+                      </strong>
+                      Synced Only (
+                      <em>
+                       optional
+                      </em>
+                      )
+                      <li>
+                       <code>
+                        attackerTeam
+                       </code>
+                       <strong>
+                        <span class="type">
+                         number
+                        </span>
+                       </strong>
+                       Synced Only (
+                       <em>
+                        optional
+                       </em>
+                       )
+                      </li>
+                     </li>
+                    </li>
+                   </li>
+                  </li>
+                 </li>
+                </li>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              number newDamage, number impulseMult
+             </li>
+            </ol>
+           </div>
+           <h3 id="FeaturePreDamaged">
+            <a aria-labelledby="FeaturePreDamaged" class="anchor-heading" href="#FeaturePreDamaged">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            FeaturePreDamaged(featureID, featureDefID, featureTeam, damage, weaponDefID, projectileID, attackerID, attackerDefID, attackerTeam)
+           </h3>
+           <p>
+            Called before damage is applied to the feature.
+           </p>
+           <div class="code-example">
+            <p>
+             Allows fine control over how much damage and impulse is applied.
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               featureID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                featureDefID
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               <li>
+                <code>
+                 featureTeam
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+                <li>
+                 <code>
+                  damage
+                 </code>
+                 <strong>
+                  <span class="type">
+                   number
+                  </span>
+                 </strong>
+                 <li>
+                  <code>
+                   weaponDefID
+                  </code>
+                  <strong>
+                   <span class="type">
+                    number
+                   </span>
+                  </strong>
+                  <li>
+                   <code>
+                    projectileID
+                   </code>
+                   <strong>
+                    <span class="type">
+                     number
+                    </span>
+                   </strong>
+                   <li>
+                    <code>
+                     attackerID
+                    </code>
+                    <strong>
+                     <span class="type">
+                      number
+                     </span>
+                    </strong>
+                    <li>
+                     <code>
+                      attackerDefID
+                     </code>
+                     <strong>
+                      <span class="type">
+                       number
+                      </span>
+                     </strong>
+                     <li>
+                      <code>
+                       attackerTeam
+                      </code>
+                      <strong>
+                       <span class="type">
+                        number
+                       </span>
+                      </strong>
+                     </li>
+                    </li>
+                   </li>
+                  </li>
+                 </li>
+                </li>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              newDamage
+              <li>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               impulseMult
+              </li>
+             </li>
+            </ol>
+           </div>
+           <h3 id="ShieldPreDamaged">
+            <a aria-labelledby="ShieldPreDamaged" class="anchor-heading" href="#ShieldPreDamaged">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            ShieldPreDamaged(projectileID, projectileOwnerID, shieldWeaponNum, shieldCarrierID, bounceProjectile, beamEmitterWeaponNum, beamEmitterUnitID, startX, startY, startZ, hitX, hitY, hitZ)
+           </h3>
+           <p>
+            Called before any engine shield-vs-projectile logic executes.
+           </p>
+           <div class="code-example">
+            <p>
+             If the weapon is a hitscan type (BeamLaser or LightningCanon) then proID is nil and beamEmitterWeaponNum and beamEmitterUnitID are populated instead.
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               projectileID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                projectileOwnerID
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               <li>
+                <code>
+                 shieldWeaponNum
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+                <li>
+                 <code>
+                  shieldCarrierID
+                 </code>
+                 <strong>
+                  <span class="type">
+                   number
+                  </span>
+                 </strong>
+                 <li>
+                  <code>
+                   bounceProjectile
+                  </code>
+                  <strong>
+                   <span class="type">
+                    bool
+                   </span>
+                  </strong>
+                  <li>
+                   <code>
+                    beamEmitterWeaponNum
+                   </code>
+                   <strong>
+                    <span class="type">
+                     number
+                    </span>
+                   </strong>
+                   <li>
+                    <code>
+                     beamEmitterUnitID
+                    </code>
+                    <strong>
+                     <span class="type">
+                      number
+                     </span>
+                    </strong>
+                    <li>
+                     <code>
+                      startX
+                     </code>
+                     <strong>
+                      <span class="type">
+                       number
+                      </span>
+                     </strong>
+                     <li>
+                      <code>
+                       startY
+                      </code>
+                      <strong>
+                       <span class="type">
+                        number
+                       </span>
+                      </strong>
+                      <li>
+                       <code>
+                        startZ
+                       </code>
+                       <strong>
+                        <span class="type">
+                         number
+                        </span>
+                       </strong>
+                       <li>
+                        <code>
+                         hitX
+                        </code>
+                        <strong>
+                         <span class="type">
+                          number
+                         </span>
+                        </strong>
+                        <li>
+                         <code>
+                          hitY
+                         </code>
+                         <strong>
+                          <span class="type">
+                           number
+                          </span>
+                         </strong>
+                         <li>
+                          <code>
+                           hitZ
+                          </code>
+                          <strong>
+                           <span class="type">
+                            number
+                           </span>
+                          </strong>
+                         </li>
+                        </li>
+                       </li>
+                      </li>
+                     </li>
+                    </li>
+                   </li>
+                  </li>
+                 </li>
+                </li>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              if true the gadget handles the collision event and the engine does not remove the projectile
+             </li>
+            </ol>
+           </div>
+           <h3 id="AllowWeaponTargetCheck">
+            <a aria-labelledby="AllowWeaponTargetCheck" class="anchor-heading" href="#AllowWeaponTargetCheck">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            AllowWeaponTargetCheck(attackerID, attackerWeaponNum, attackerWeaponDefID)
+           </h3>
+           <p>
+            Determines if this weapon can automatically generate targets itself.
+           </p>
+           <div class="code-example">
+            <p>
+             See also commandFire weaponDef tag.
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               attackerID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                attackerWeaponNum
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               <li>
+                <code>
+                 attackerWeaponDefID
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              allowCheck
+              <li>
+               <strong>
+                <span class="type">
+                 bool
+                </span>
+               </strong>
+               ignoreCheck
+              </li>
+             </li>
+            </ol>
+           </div>
+           <h3 id="AllowWeaponTarget">
+            <a aria-labelledby="AllowWeaponTarget" class="anchor-heading" href="#AllowWeaponTarget">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            AllowWeaponTarget(attackerID, targetID, attackerWeaponNum, attackerWeaponDefID, defPriority)
+           </h3>
+           <p>
+            Controls blocking of a specific target from being considered during a weapon's periodic auto-targeting sweep.
+           </p>
+           <div class="code-example">
+            <p>
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               attackerID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                targetID
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               <li>
+                <code>
+                 attackerWeaponNum
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+                <li>
+                 <code>
+                  attackerWeaponDefID
+                 </code>
+                 <strong>
+                  <span class="type">
+                   number
+                  </span>
+                 </strong>
+                 <li>
+                  <code>
+                   defPriority
+                  </code>
+                  <strong>
+                   <span class="type">
+                    number
+                   </span>
+                  </strong>
+                 </li>
+                </li>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              allowed
+              <li>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               the new priority for this target (if you don't want to change it, return defPriority). Lower priority targets are targeted first.
+              </li>
+             </li>
+            </ol>
+           </div>
+           <h3 id="AllowWeaponInterceptTarget">
+            <a aria-labelledby="AllowWeaponInterceptTarget" class="anchor-heading" href="#AllowWeaponInterceptTarget">
+             <svg aria-hidden="true" viewbox="0 0 16 16">
+              <use xlink:href="#svg-link">
+              </use>
+             </svg>
+            </a>
+            AllowWeaponInterceptTarget(interceptorUnitID, interceptorWeaponID, targetProjectileID)
+           </h3>
+           <p>
+            Controls blocking of a specific intercept target from being considered during an interceptor weapon's periodic auto-targeting sweep.
+           </p>
+           <div class="code-example">
+            <p>
+             Only called for weaponDefIDs registered via Script.SetWatchWeapon.
+            </p>
+            <h4 class="no_anchor">
+             Parameters:
+            </h4>
+            <ol>
+             <li>
+              <code>
+               interceptorUnitID
+              </code>
+              <strong>
+               <span class="type">
+                number
+               </span>
+              </strong>
+              <li>
+               <code>
+                interceptorWeaponID
+               </code>
+               <strong>
+                <span class="type">
+                 number
+                </span>
+               </strong>
+               <li>
+                <code>
+                 targetProjectileID
+                </code>
+                <strong>
+                 <span class="type">
+                  number
+                 </span>
+                </strong>
+               </li>
+              </li>
+             </li>
+            </ol>
+            <h4 class="no_anchor">
+             Returns:
+            </h4>
+            <ol>
+             <li>
+              <strong>
+               <span class="type">
+                bool
+               </span>
+              </strong>
+              allowed
+             </li>
+            </ol>
+           </div>
+          </main>
+          <hr/>
+          <footer>
+           <p>
+            <a href="#top" id="back-to-top">
+             Back to top
+            </a>
+           </p>
+           <p class="text-small text-grey-dk-100 mb-0">
+            Copyright © 2022 Recoil team. Distributed by an
+            <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html#SEC1">
+             GPL2 license.
+            </a>
+           </p>
+           <div class="d-flex mt-2">
+            <p class="text-small text-grey-dk-000 mb-0">
+             <a href="https://github.com/beyond-all-reason/spring/tree/BAR105/doc/site/ldoc/modules/LuaHandleSynced.html" id="edit-this-page">
+              Edit this page on GitHub
+             </a>
+            </p>
+           </div>
+          </footer>
+         </div>
+        </div>
+        <div class="search-overlay">
+        </div>
+       </div>
+      </body>
+     </link>
+    </meta>
+   </meta>
+  </meta>
+ </head>
+</html>

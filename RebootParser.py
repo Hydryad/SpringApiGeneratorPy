@@ -1,12 +1,14 @@
 # imports
 
+# sourcery skip: ensure-file-closed
 import json
 import re
 import requests
 import os
+import sys
 import pprint
 from bs4 import BeautifulSoup
-
+from urllib.parse import urljoin
 
 
 # get a list of wiki page names
@@ -39,13 +41,41 @@ soup = BeautifulSoup('<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF
 
 sub_URL_pat = r"(?P<suburl>/\w+/\w+/modules/(\w+\.html))"
 m = re.compile(sub_URL_pat)
+reModule = re.compile(r"(?P<module>\w*)\.\w*$")
 
 print(soup.prettify())
 
+base_URL = 'https://beyond-all-reason.github.io/spring/lua-api'
+urlList = []
+baseUrlList = []
+
+# regex to extract basic module name
+
+
 for link in soup.find_all('a'):
-    print(link)
-    m.match(link)
-    print(m.group("suburl"))
+    print(urljoin(base_URL, link.get('href')))
+    if m.match(link.get('href')):
+        urlList.append(urljoin(base_URL, link.get('href')))
+        baseUrlList.append(link.get('href'))
+        print(link.get('href'))
+
+# once we have parse per page, put a for loop to run it on all pages here
+
+
+# parse page and extract the function names first.
+
+
+for urls in urlList:
+    try:
+        thisURL = reModule.search(urls)["module"]
+        thisURL += ".html"
+        outf = open(thisURL, "+w")
+        outf.writelines(BeautifulSoup(requests.get(urls).text, "html").prettify())
+        outf.close()
+    except OSError:
+        print(reModule.search(urls)["module"])
+        
+
 
 # for link in soup.find_all("a", string=re.compile(sub_URL_pat)):
 #     print(link.get())
