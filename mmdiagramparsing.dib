@@ -1,0 +1,63 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"},{"aliases":[],"languageName":"mermaid","name":"mermaid"}]}}
+
+#!mermaid
+
+flowchart LR
+    %% Generated link (need more info): https://beyond-all-reason.github.io/spring/ldoc/modules/SyncedCtrl.html#Spring.SetAlly
+    %%header["Data Source"] ~~~ line2fixed["Stage 1"] ~~~ genLink
+    line1["{{LuaCallout"] --> delete
+    line2["|prefix = Spring."] 
+    line3["|name = KillTeam"]
+    %%line4["|arg1 = {{type|number}} teamID"]
+    %%line5["|arg2 = "]
+    %%line5a["|argn = "]
+    line6["!!add function prefix
+    append to start of string we are making?"] ---> step2Combine
+    line7["!!add parenthesis"]
+    line2 --> step1Combine["Spring.KillTeam"]
+    line3 --> step1Combine
+    step1Combine --> step2Combine["function Spring.KillTeam"]
+    subgraph concat["Concat all args for use in function call"]
+        direction TB
+        subgraph args1ton["Args 1 to n <10"]
+            direction LR
+            arg1 -.-|", "| arg2
+            arg2 -.-|", "| arg3
+            arg3 -.-|", "| argn
+        end
+        args1ton --> |add to|combinedArgs
+    end
+    subgraph argsToParams["Create a list of args formatted as ---@param type name"]
+        direction LR
+        subgraph argParsingParams
+            direction TB
+            arg1p["|arg1 = {{type|number}} allyTeamID1"] ~~~
+            arg2p["|arg2 = {{type|number}} allyTeamID1"] ~~~
+            argNp["|argN = {{type|number}} allyTeamID1"] ~~~
+            dots[...]
+        end
+
+        subgraph argResultFromParse
+            direction TB
+            arg1po["---@param paramName paramType1|type2|typeN|... "] ~~~
+            arg2po["---@param paramName paramType1|type2|typeN|... "] ~~~
+            argNpo["---@param paramName paramType1|type2|typeN|... "] ~~~
+            dots2[...]
+        end
+
+        argParsingParams -.-> argResultFromParse
+    end
+    argsToParams --> parameterList
+    concat --> functionWithParen["function Spring.KillTeam(#quot;arg1, arg2, arg3, ...#quot;)"]
+    step2Combine ---> functionWithParen
+    line7 --> functionWithParen
+    parameterList --> finalOutput
+    functionWithParen --> finalOutput
+
+#!mermaid
+
+flowchart LR
+    start("start") --> get_pageContents("get_pageContents(wikiPageNames[pn])") --> 
+    forpn("for pn in wikiPageNames") --> get_pageContents("get_pageContents(pn)") --> finish("finish")
