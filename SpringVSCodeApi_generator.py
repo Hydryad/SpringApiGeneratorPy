@@ -4,7 +4,8 @@ import json
 import urllib.request
 import re
 import os
-
+import pprint
+import rich
 
 # See
 # https://studio.zerobrane.com/doc-api-auto-complete
@@ -51,6 +52,9 @@ bracketre = re.compile(r"{{bracket.*?}}")
 rbracketre = re.compile(r"{{rbracket.*?}}")
 
 morebadres = [re.compile(r"")]
+
+
+
 
 
 def stripwikimarks(line):
@@ -114,7 +118,7 @@ def parseContents(parsedLines_f, wikiPageName):
                     combinedLuaCalloutDict["args"] = parsedSpringApiArgs
                 if "return" in springLuaCallout and len(springLuaCallout["return"]) > 0:
                     combinedLuaCalloutDict["returns"] = stripwikimarks(springLuaCallout["return"])
-                parsedDescription = wikiPageName + "; "
+                parsedDescription = f"{wikiPageName}; "
                 if "info" in springLuaCallout and len(springLuaCallout["info"]) > 0:
                     parsedDescription = parsedDescription + springLuaCallout["info"]
                 combinedLuaCalloutDict["description"] = stripwikimarks(parsedDescription)
@@ -133,7 +137,7 @@ def parseContents(parsedLines_f, wikiPageName):
                 if workingPrefix not in combinedConstantsDict:
                     combinedConstantsDict[workingPrefix] = {
                         "type": "lib",
-                        "Description": (workingPrefix + " from " + wikiPageName),
+                        "Description": f"{workingPrefix} from {wikiPageName}",
                         "childs": {},
                     }
                 combinedConstantsDict[workingPrefix]["childs"][curConstSuffix] = {"type": "value"}
@@ -161,7 +165,7 @@ def parseContents(parsedLines_f, wikiPageName):
             # print('LuaCallin',callin)
             combinedCallinsDict["widget"]["childs"][workingCallinDict["name"]] = workingLuaCallin
             combinedCallinsDict["gadget"]["childs"][workingCallinDict["name"]] = workingLuaCallin
-        i = i + 1
+        i += 1
 
 
 def get_pageContents(wikiFunctionScopePrefix):  # passed wikiPageNames here
@@ -188,44 +192,97 @@ def get_pageContents(wikiFunctionScopePrefix):  # passed wikiPageNames here
 #     print(f"Hi, {name}")  # Press Ctrl+F8 to toggle the breakpoint.
 
 
-def recursecreatetable(tableRCC, subTable, depth=0):
-    for subtableKey, subtableValue in subTable.items():
+# def recursecreatetable(listWithAll, combinedSubDict, depth=0):
+#     for subtableKey,subtableValue in combinedSubDict.items():
+#         if type(subtableValue) is dict:
+#             listWithAll.append('\t'*depth + subtableKey + ' = {')
+#             recursecreatetable(listWithAll,subtableValue,depth+1)
+#             listWithAll.append('\t' * depth +'},')
+#         elif type(subtableValue) is list:
+#             listWithAll.append("\t"*depth+subtableKey+' = '+ '\'' + ', '.join([str(v2) for v2 in subtableValue])+'\',')
+#         else:
+#             if subtableKey == 'description':
+#                 listWithAll.append("\t"*depth+subtableKey+' = '+ '[[' + subtableValue+' ]],')
+#             else:
+#                 listWithAll.append("\t"*depth+subtableKey+' = '+ '\'' + subtableValue+'\',')
+#     return listWithAll
+
+def recursecreatetable(listWithAll, combinedSubDict, depth=0):  # we're adding tabs to match the depth of the values in the nested dict here
+    for subtableKey, subtableValue in combinedSubDict.items():
         if type(subtableValue) is dict:
-            tableRCC.append("\t" * depth + subtableKey + " = {")
-            recursecreatetable(tableRCC, subtableValue, depth + 1)
-            tableRCC.append("\t" * depth + "},")
+            listWithAll.append(subtableKey + " = {")
+            recursecreatetable(listWithAll, subtableValue, depth + 1)
+            listWithAll.append("},")
         elif type(subtableValue) is list:
-            tableRCC.append(
-                "\t" * depth + subtableKey + " = " + "'" + ", ".join([str(v2) for v2 in subtableValue]) + "',"
+            listWithAll.append(
+                subtableKey + " = " + "'" + ", ".join([str(v2) for v2 in subtableValue]) + "',"
             )
         else:
             if subtableKey == "description":
-                tableRCC.append("\t" * depth + subtableKey + " = " + "[[" + subtableValue + " ]],")
+                listWithAll.append(subtableKey + " = " + "[[" + subtableValue + " ]],")
             else:
-                tableRCC.append("\t" * depth + subtableKey + " = " + "'" + subtableValue + "',")
-    return tableRCC
+                listWithAll.append(subtableKey + " = " + "'" + subtableValue + "',")
+    return listWithAll
 
 
 # ----- Hydryad working defs begin
 
+# prefixedCalloutsDict, 1)
+# combinedCallinsDict, 1)
+# combinedConstantsDict, 1)
 
-def VSCodeAnnoSplitLines(filename):
-    content = open(filename).read()
-    # jstest = content
-    # jstest = json.loads(jstest)
-    # content = jstest["query"]["pages"][0]["revisions"][0]["content"]
-    lines = content.splitlines(keepends=True)
-    outf = open("RawJsonSplitlineTestOutputBeforeStrip.txt", "w")
-    print("Line length in testSplitLines: " + str(len(lines)))
-    outf.writelines(lines)
-    outf.close()
-    for i, x in enumerate(lines, start=0):
-        lines[i] = stripwikimarks(x)
 
-    outf = open("RawJsonSplitlineTestOutput.txt", "w")
-    print("Line length in testSplitLines: " + str(len(lines)))
-    outf.writelines(lines)
-    outf.close()
+def practicePrintingDict(dictIn):
+    for k, v in dictIn.items():
+        if isinstance(v, dict):
+            for k, v in dictIn.items():
+                if isinstance(v, dict):
+                    for k, v in dictIn.items():
+                        print(len(dictIn))
+                        print(dictIn.keys())
+                        
+                        
+
+
+
+""" # def VSCodeAnnoSplitLines(filename):
+#     content = open(filename).read()
+#     # jstest = content
+#     # jstest = json.loads(jstest)
+#     # content = jstest["query"]["pages"][0]["revisions"][0]["content"]
+#     lines = content.splitlines(keepends=True)
+#     outf = open("RawJsonSplitlineTestOutputBeforeStrip.txt", "w")
+#     print("Line length in testSplitLines: " + str(len(lines)))
+#     outf.writelines(lines)
+#     outf.close()
+#     for i, x in enumerate(lines, start=0):
+#         lines[i] = stripwikimarks(x)
+
+#     outf = open("RawJsonSplitlineTestOutput.txt", "w")
+#     print("Line length in testSplitLines: " + str(len(lines)))
+#     outf.writelines(lines)
+#     outf.close()
+# def recursePrintTable(listWithAll, combinedSubDict):  # we're adding tabs to match the depth of the values in the nested dict here
+#     outf = open("springVSCodeapi.lua", "w")
+#     for subtableKey, subtableValue in combinedSubDict.items():
+#         if type(subtableValue) is dict:
+#             # listWithAll.append(subtableKey + " = {")
+#             outf.write(r" = {")
+#             # recursePrintTable(listWithAll, subtableValue, depth + 1)
+#             # for subtableKey2, subtableValue2 in
+#             outf.write("\n" + recursePrintTable(listWithAll, subtableValue))
+#             outf.write("},")
+#         elif type(subtableValue) is list:
+#             outf.write(
+#                 subtableKey + " = " + "'" + ", ".join([str(v2) for v2 in subtableValue]) + "',"
+#             )
+#         else:
+#             if subtableKey == "description":
+#                 outf.write(subtableKey + " = " + "[[" + subtableValue + " ]],")
+#             else:
+#                 outf.write(subtableKey + " = " + "'" + subtableValue + "',")
+#     outf.close()
+#     return listWithAll """
 
 
 # ----- End of Hydryad Working Defs
@@ -240,26 +297,33 @@ if True:  # __name__ == '__main__':
         # time.sleep(1)
     del combinedConstantsDict["Spring"]
     # Testing Code
+    keylist = []
+    pp = pprint.PrettyPrinter(depth=7, compact=True)
+    # pp.pprint(prefixedCalloutsDict)
+    # pp.pprint(listAllKeys(prefixedCalloutsDict, keylist))
+    practicePrintingDict(prefixedCalloutsDict)
+    outf = open("springVSJsonDumpTest.json", "w")
+    outf.write(json.dumps(prefixedCalloutsDict, indent=4))
     
-    
-    
-    
+
+
+    # recursePrintTable("", prefixedCalloutsDict)
     # End testing code
     # For all the callouts, add the shorthand versions too!
-    tableWithAllData = ["return {"]
-    tableWithAllData = recursecreatetable(tableWithAllData, prefixedCalloutsDict, 1)
-    tableWithAllData = recursecreatetable(tableWithAllData, combinedCallinsDict, 1)
-    tableWithAllData = recursecreatetable(tableWithAllData, combinedConstantsDict, 1)
-    for membername, value in prefixedCalloutsDict["Spring"]["childs"].items():
-        recursecreatetable(tableWithAllData, {"sp" + membername: value}, 1)
-    for membername, value in prefixedCalloutsDict["gl"]["childs"].items():
-        recursecreatetable(tableWithAllData, {"gl" + membername: value}, 1)
-    tableWithAllData.append("}")
+    # tableWithAllData = ["return {"]
+    # tableWithAllData = recursecreatetable(tableWithAllData, prefixedCalloutsDict, 1)
+    # tableWithAllData = recursecreatetable(tableWithAllData, combinedCallinsDict, 1)
+    # tableWithAllData = recursecreatetable(tableWithAllData, combinedConstantsDict, 1)
+    # for membername, value in prefixedCalloutsDict["Spring"]["childs"].items():
+    #     recursecreatetable(tableWithAllData, {"sp" + membername: value}, 1)
+    # for membername, value in prefixedCalloutsDict["gl"]["childs"].items():
+    #     recursecreatetable(tableWithAllData, {"gl" + membername: value}, 1)
+    # tableWithAllData.append("}")
     # print('\n'.join(mytable))
-    VSCodeAnnoSplitLines(r"C:\Users\Matthew\Python Learnin\Lua_SyncedCtrl.json")
-    outf = open("springVSCodeapi.lua", "w")
-    outf.write("\n".join(tableWithAllData))
-    outf.close()
+    # VSCodeAnnoSplitLines(r"C:\Users\Matthew\Python Learnin\Lua_SyncedCtrl.json")
+    # outf = open("springVSCodeapi.lua", "w")
+    # outf.write("\n".join(prefixedCalloutsDict))
+    # outf.close()
     
 
 
