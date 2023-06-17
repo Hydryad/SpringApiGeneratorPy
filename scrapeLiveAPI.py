@@ -51,3 +51,4 @@ def scrapeLiveAPI():
         thisURL = getThisUrl(reModule, urls)
         with open(thisURL, "+w") as outf:
             outf.writelines(BeautifulSoup(requests.get(urls).text, "html").prettify())
+    return None
